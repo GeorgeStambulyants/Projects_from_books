@@ -142,3 +142,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'user:login'
+
+# To serve the uploaded files. Use only in development, not in production
+MEDIA_URL = '/uploaded/'
+# Path to the directory, where Django should save the code
+MEDIA_ROOT = os.path.join(BASE_DIR, '../media_root')

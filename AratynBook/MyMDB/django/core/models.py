@@ -1,6 +1,22 @@
 from django.db import models
 from django.contrib.auth import settings
 from django.db.models.aggregates import Sum
+from uuid import uuid4
+from django.conf import settings
+
+
+def movie_directory_path_with_uuid(instance, filename):
+    return f'{instance.movie_id}/{uuid4()}'
+
+
+class MovieImage(models.Model):
+    image = models.ImageField(
+        upload_to=movie_directory_path_with_uuid
+    )
+    uploaded = models.DateTimeField(auto_now_add=True)
+    movie = models.ForeignKey('Movie', on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.CASCADE)
 
 
 class MovieManager(models.Manager):
@@ -15,6 +31,7 @@ class MovieManager(models.Manager):
         qs = self.all_with_related_persons()
         qs = qs.annotate(score=Sum('vote__value'))
         return qs
+
 
 class Movie(models.Model):
     NOT_RATED = 0
@@ -34,12 +51,16 @@ class Movie(models.Model):
     rating = models.IntegerField(choices=RATINGS, default=NOT_RATED)
     runtime = models.PositiveIntegerField()
     website = models.URLField(blank=True)
-    director = models.ForeignKey(to='Person', on_delete=models.SET_NULL,
-                                 related_name='directed', null=True, blank=True)
+    director = models.ForeignKey(to='Person',
+                                 on_delete=models.SET_NULL,
+                                 related_name='directed',
+                                 null=True, blank=True)
     writers = models.ManyToManyField(to='Person',
-                                     related_name='writing_credits', blank=True)
+                                     related_name='writing_credits',
+                                     blank=True)
     actors = models.ManyToManyField(to='Person', through='Role',
-                                    related_name='acting_credits', blank=True)
+                                    related_name='acting_credits',
+                                    blank=True)
 
     objects = MovieManager()
 
@@ -65,7 +86,9 @@ class Role(models.Model):
 class PersonManager(models.Manager):
     def all_with_prefetch_movies(self):
         qs = self.get_queryset()
-        return qs.prefetch_related('directed', 'writing_credits', 'role_set__movie')
+        return qs.prefetch_related('directed',
+                                   'writing_credits',
+                                   'role_set__movie')
 
 
 class Person(models.Model):
@@ -81,7 +104,9 @@ class Person(models.Model):
 
     def __str__(self):
         if self.died:
-            return f'{self.last_name}, {self.first_name} ({self.born}-{self.died})'
+            return f'{self.last_name}, {self.first_name} \
+                    ({self.born}-{self.died})'
+
         return f'{self.last_name}, {self.first_name} {self.born}'
 
 
