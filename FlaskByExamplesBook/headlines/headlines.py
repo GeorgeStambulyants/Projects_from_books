@@ -12,7 +12,10 @@ RSS_FEEDS = {'bbc': 'https://feeds.bbci.co.uk/news/rss.xml',
              'fox': 'http://feeds.foxnews.com/foxnews/latest',
              'iol': 'http://rss.iol.io/iol/news'}
 
-DEFAULTS = {'publication': 'bbc', 'city': 'London, UK'}
+DEFAULTS = {'publication': 'bbc', 'city': 'London, UK', 
+            'currency_from': 'GBP', 'currency_to': 'USD'}
+WEATHER_URL = 'http://api.openweathermap.org/data/2.5/weather?q={}uk&units=metric&appid=a27886fec137fb6e69e4a5697fd918df'
+CURRENCY_URL = 'https://openexchangerates.org//api/latest.json?app_id=14b5afcf6a554b6e83febd8383a393c2'
 
 
 @app.route('/')
@@ -27,14 +30,28 @@ def home():
     if not city:
         city = DEFAULTS['city']
     weather = get_weather(city)
+    # get customized currency based on user input or default
+    currency_from = request.args.get('currency_from')
+    if not currency_from:
+        currency_from = DEFAULTS['currency_from']
+    currency_to = request.args.get('currency_to')
+    if not currency_to:
+        currency_to = DEFAULTS['currency_to']
 
-    return render_template('home.html', articles=articles, weather=weather)
+    rate, currencies = get_rate(currency_from, currency_to)
+
+    return render_template('home.html',
+                            articles=articles,
+                            weather=weather,
+                            currency_from=currency_from,
+                            currency_to=currency_to,
+                            rate=rate,
+                            currencies=sorted(currencies))
 
 
 def get_weather(query):
-    api_url = 'http://api.openweathermap.org/data/2.5/weather?q={}uk&units=metric&appid=a27886fec137fb6e69e4a5697fd918df'
     query = urllib.quote(query)
-    url = api_url.format(query)
+    url = WEATHER_URL.format(query)
     data = urllib.urlopen(url).read()
     parsed = json.loads(data)
     weather = None
@@ -52,6 +69,15 @@ def get_news(query):
         publication = query.lower()
     feed = feedparser.parse(RSS_FEEDS[publication])
     return feed['entries']
+
+
+def get_rate(frm, to):
+    all_currency = urllib.urlopen(CURRENCY_URL).read()
+
+    parsed = json.loads(all_currency).get('rates')
+    frm_rate = parsed.get(frm.upper())
+    to_rate = parsed.get(to.upper())
+    return to_rate / frm_rate, parsed.keys()
 
 
 if __name__ == '__main__':
