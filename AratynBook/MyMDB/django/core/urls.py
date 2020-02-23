@@ -9,6 +9,10 @@ urlpatterns = [
         views.MovieList.as_view(),
         name='MovieList'
     ),
+    path('movies/top',
+        views.TopMovies.as_view(),
+        name='TopMovies'
+    ),
     path(
         'movies/<int:pk>',
         views.MovieDetail.as_view(),
