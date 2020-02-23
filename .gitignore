@@ -10,3 +10,5 @@ MeleBook/Bookmarks/bookmarksvenv/
 AratynBook/MyMDB/django/.idea/
 __pycache__/
 *.log
+env
+venv
