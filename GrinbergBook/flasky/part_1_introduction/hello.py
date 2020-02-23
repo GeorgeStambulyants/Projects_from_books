@@ -5,9 +5,9 @@ from datetime import datetime
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
-import os
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+import os
 
 
 app = Flask(__name__)
@@ -17,12 +17,14 @@ moment = Moment(app)
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-app.config['SQLALCHEMY_DATABASEURI'] = 'sqlite:///'+os.path.join(basedir,
-                                                                 'data.sqlite')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
+                                        os.path.join(basedir,
+                                        'data.sqlite')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -57,6 +59,7 @@ def page_not_found(e):
 @app.errorhandler(500)
 def internel_server_error(e):
     return render_template('500.html'), 500
+
 
 @app.shell_context_processor
 def make_shell_context():
