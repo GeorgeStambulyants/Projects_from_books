@@ -1,5 +1,6 @@
+import django
 from django.shortcuts import redirect
-from .models import Movie, Person, Vote
+from core.models import Movie, Person, Vote
 from django.views.generic import (
     ListView, DetailView, CreateView, UpdateView,
 )
@@ -10,6 +11,7 @@ from core.forms import (
 )
 from django.core.exceptions import PermissionDenied
 from core.mixins import CachePageVaryOnCookieMixin
+from django.core.cache import cache
 
 
 class PersonDetail(DetailView):
@@ -116,4 +118,18 @@ class MovieImageUpload(LoginRequiredMixin, CreateView):
 
 class TopMovies(ListView):
     template_name = 'core/top_movies_list.html'
-    queryset = Movie.objects.top_movies(limit=10)
+
+    def get_queryset(self):
+            limit = 10
+            key = 'top_movies_{}'.format(limit)
+            cached_qs = cache.get(key)
+            if cached_qs:
+                # Pickling QuerySet objects are not guaranteed to be compatible
+                # across Django versions, so the version should be checked
+                # before proceeding
+                same_django = cached_qs._django_version == django.get_version()
+                if same_django:
+                    return cached_qs
+            qs = Movie.objects.top_movies(limit=limit)
+            cache.set(key, qs)
+            return qs
