@@ -118,6 +118,15 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'default-locmemcache',
+        'TIMEOUT': 5,  # seconds
+    }
+}
+
+
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
@@ -147,3 +156,7 @@ LOGIN_REDIRECT_URL = 'user:login'
 MEDIA_URL = '/uploaded/'
 # Path to the directory, where Django should save the code
 MEDIA_ROOT = os.path.join(BASE_DIR, '../media_root')
+
+# CSRF token will not be sent in a cookie,
+# but will store it in the user's session, which is stored on the server
+CSRF_USE_SESSION = True

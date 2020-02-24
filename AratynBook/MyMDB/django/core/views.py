@@ -9,6 +9,7 @@ from core.forms import (
     VoteForm, MovieImageForm,
 )
 from django.core.exceptions import PermissionDenied
+from core.mixins import CachePageVaryOnCookieMixin
 
 
 class PersonDetail(DetailView):
@@ -44,8 +45,8 @@ class MovieDetail(DetailView):
         return None
 
 
-class MovieList(ListView):
-    paginate_by = 1
+class MovieList(CachePageVaryOnCookieMixin, ListView):
+    paginate_by = 10
     model = Movie
 
 
