@@ -20,10 +20,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '6c-5&jvfj@xp%ztkgfexxqfx6+)ncth)-7jp_*q%qe^s1-)fw_'
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')  # '6c-5&jvfj@xp%ztkgfexxqfx6+)ncth)-7jp_*q%qe^s1-)fw_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -79,23 +79,9 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-"""
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-"""
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mymdb',
-        'USER': 'mymdb',
-        'PASSWORD': 'development',
-        'HOST': 'localhost',
-        'PORT': '5432',
     }
 }
 
@@ -116,16 +102,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-        'LOCATION': 'default-locmemcache',
-        'TIMEOUT': 5,  # seconds
-    }
-}
-
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
@@ -160,3 +136,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '../media_root')
 # CSRF token will not be sent in a cookie,
 # but will store it in the user's session, which is stored on the server
 CSRF_USE_SESSION = True
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'gathered_static_files')
