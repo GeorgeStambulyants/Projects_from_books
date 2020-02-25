@@ -1,2 +1,4 @@
 -r requirements.common.txt
-django-debug-toolbar
+django-storage
+boto3
+uwsgi
