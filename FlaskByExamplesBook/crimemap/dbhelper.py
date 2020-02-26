@@ -23,10 +23,12 @@ class DBHelper:
     def add_input(self, data):
         connection = self.connect()
         try:
+            # the %s token helps to ignore user input
+            # characters thar are meaningful to SQL
             query = 'INSERT INTO crimes (description) \
-                        VALUES (\'{}\');'.format(data)
+                        VALUES (%s);'
             with connection.cursor() as cursor:
-                cursor.execute(query)
+                cursor.execute(query, data)
                 connection.commit()
         finally:
             connection.close()
