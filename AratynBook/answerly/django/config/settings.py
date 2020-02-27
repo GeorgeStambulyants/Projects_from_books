@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'markdownify',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +132,16 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+
+# markdownify's configs
+# this setting tells markdownify to HTML encode any other HTML tag
+MARKDOWNIFY_STRIP = False
+# this lets markdownify know which HTML tags to whitelist
+MARKDOWNIFY_WHITELIST_TAGS = [
+    'a', 'blockquote', 'code', 'em', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+    'h7', 'li', 'ol', 'p', 'strong', 'ul',
+]
+
+# crispy configs
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
