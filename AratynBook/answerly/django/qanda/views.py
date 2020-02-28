@@ -1,7 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 from django.http import HttpResponseBadRequest
-from qanda.forms import QuestionForm
+from qanda.forms import QuestionForm, AnswerForm, AnswerAcceptanceForm
 from qanda.models import Question
 
 
@@ -24,3 +24,26 @@ class AskQuestionView(LoginRequiredMixin, CreateView):
             return self.render_to_response(context=ctx)
 
         return HttpResponseBadRequest()
+
+
+class QuestionDetailView(DetailView):
+    model = Question
+
+    ACCEPT_FORM = AnswerAcceptanceForm(initial={'accepted': True})
+    REJECT_FROM = AnswerAcceptanceForm(initial={'accepted': False})
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx.update({
+            'answer_form': AnswerForm(initial={
+                'user': self.request.user.id,
+                'question': self.object.id,
+            })
+        })
+
+        if self.object.can_accept_answers(self.request.user):
+            ctx.update({
+                'accept_form': self.ACCEPT_FORM,
+                'reject_form': self.REJECT_FROM,
+            })
+        return ctx
