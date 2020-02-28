@@ -15,7 +15,7 @@ class QuestionForm(forms.ModelForm):
         fields = ['title', 'question', 'user', ]
 
 
-class AnswerForm(form.ModelForm):
+class AnswerForm(forms.ModelForm):
     user = forms.ModelChoiceField(
             widget=forms.HiddenInput,
             queryset=get_user_model().objects.all(),
