@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import (
     LoginRequiredMixin,
 )
 from django.views.generic import (
-    CreateView, DetailView, UpdateView, DayArchiveView,
+    CreateView, DetailView, UpdateView, DayArchiveView, RedirectView,
 )
 from django.http import (
     HttpResponseBadRequest, HttpResponseRedirect,
@@ -12,6 +12,9 @@ from qanda.forms import (
 )
 from qanda.models import (
     Question, Answer,
+)
+from django.utils import (
+    timezone,
 )
 
 
@@ -27,7 +30,7 @@ class AskQuestionView(LoginRequiredMixin, CreateView):
         if action == 'SAVE':
             # save and redirect as usual
             return super().form_valid(form)
-        elif action == 'PREVIEW':
+        elif action == 'PREVIEW':django
             preview = Question(question=form.cleaned_data['question'],
                                title=form.cleaned_data['title'])
             ctx = self.get_context_data(preview=preview)
@@ -106,4 +109,16 @@ class DailytQuestionList(DayArchiveView):
     date_field = 'created'
     month_format = '%m'
     allow_empty = True
-    
+
+
+class TodaysQuestionList(RedirectView):
+    def get_redirect_url(self, *args, **kwargs):
+        today = timezone.now()
+        return reverse(
+            'question:daily_question',
+            kwargs={
+                    'day': today.day,
+                    'month': today.month,
+                    'year': today.year,
+            }
+        )
