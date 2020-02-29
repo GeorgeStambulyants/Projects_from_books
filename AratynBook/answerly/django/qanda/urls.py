@@ -21,4 +21,7 @@ urlpatterns = [
         views.UpdateAnswerAcceptance.as_view(),
         name='update_answer_acceptence',
     ),
+    path(
+        'daily/<int:year>/<int:month>/<int:day>/',
+        views.DailytQuestionList.as_view(), name='daily_questions')
 ]

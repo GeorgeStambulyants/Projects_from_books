@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import (
     LoginRequiredMixin,
 )
 from django.views.generic import (
-    CreateView, DetailView, UpdateView,
+    CreateView, DetailView, UpdateView, DayArchiveView,
 )
 from django.http import (
     HttpResponseBadRequest, HttpResponseRedirect,
@@ -99,3 +99,11 @@ class UpdateAnswerAcceptance(LoginRequiredMixin, UpdateView):
     def form_invalid(self, form):
         return HttpResponseRedirect(
             redirect_to=self.object.question.get_absolute_url())
+
+
+class DailytQuestionList(DayArchiveView):
+    queryset = Question.objects.all()
+    date_field = 'created'
+    month_format = '%m'
+    allow_empty = True
+    
