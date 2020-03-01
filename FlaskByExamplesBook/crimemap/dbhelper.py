@@ -72,8 +72,8 @@ class DBHelper:
                     named_crime = {
                         'latitude': crime[0],
                         'longtitude': crime[1],
-                        'date': datetime.datetime.strfrime(crime[2], '%Y-%m-\
-                            %d')
+                        'date': datetime.datetime.strftime(crime[2], '%Y-%m-\
+                            %d'),
                         'category': crime[3],
                         'description': crime[4],
                     }
