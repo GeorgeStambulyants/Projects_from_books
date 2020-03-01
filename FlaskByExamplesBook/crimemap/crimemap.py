@@ -40,7 +40,7 @@ def clear():
     return home()
 
 
-@app.route('/sumbitcrime', methods=['POST'])
+@app.route('/submitcrime', methods=['POST'])
 def submitcrime():
     category = request.form.get('category')
     date = request.form.get('date')
