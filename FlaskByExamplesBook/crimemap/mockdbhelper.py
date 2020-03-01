@@ -11,3 +11,7 @@ class MockDBHelper:
 
     def clear_all(self):
         pass
+
+    def add_crime(self, category, date, latitude, longtitude,
+            description):
+        pass

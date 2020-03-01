@@ -40,5 +40,16 @@ def clear():
     return home()
 
 
+@app.route('/sumbitcrime', methods=['POST'])
+def submitcrime():
+    category = request.form.get('category')
+    date = request.form.get('date')
+    latitude = request.form.get('latitude')
+    longititude = request.form.get('longititude')
+    description = request.form.get('description')
+    DB.add_crime(category, date, latitude, longititude, description)
+    return home()
+
+
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
