@@ -9,3 +9,5 @@ bookmarksvenv
 __pycache__
 *.log
 .vscode
+config.py
+*.pyc
