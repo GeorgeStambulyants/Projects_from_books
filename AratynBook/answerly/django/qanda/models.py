@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls.base import reverse
 from django.conf import settings
+from qanda.service import elasticsearch
 
 
 class Question(models.Model):
@@ -29,6 +30,16 @@ class Question(models.Model):
             'id': self.id,
             'created': self.created,
         }
+    
+    def save(self, force_insert=False, force_update=False, using=None, 
+            update_fields=None):
+        super().save(
+            force_insert=force_insert,
+            force_update=force_update,
+            using=using,
+            update_fields=update_fields,
+        )
+        elasticsearch.upsert(self)
 
 
 class Answer(models.Model):
