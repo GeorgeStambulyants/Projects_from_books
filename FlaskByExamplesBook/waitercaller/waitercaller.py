@@ -31,7 +31,13 @@ def home():
 @app.route('/account')
 @login_required
 def account():
-    return 'You are logged in'
+    return render_template('account.html')
+
+
+@app.route('/dashboard')
+@login_required
+def dashboard():
+    return render_template('dashboard.html')
 
 
 @app.route('/login', methods=['POST'])
