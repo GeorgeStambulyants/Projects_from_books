@@ -111,7 +111,7 @@ class UpdateAnswerAcceptance(LoginRequiredMixin, UpdateView):
             redirect_to=self.object.question.get_absolute_url())
 
 
-class DailytQuestionList(DayArchiveView):
+class DailyQuestionList(DayArchiveView):
     queryset = Question.objects.all()
     date_field = 'created'
     month_format = '%m'

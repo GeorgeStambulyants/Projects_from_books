@@ -31,7 +31,7 @@ urlpatterns = [
     ),
     path(
         'daily/<int:year>/<int:month>/<int:day>/',
-        views.DailytQuestionList.as_view(),
+        views.DailyQuestionList.as_view(),
         name='daily_questions'
     ),
     path('q/search', views.SearchView.as_view(),
