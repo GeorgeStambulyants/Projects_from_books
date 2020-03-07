@@ -49,7 +49,7 @@ def upsert(question_model):
     question_dict = question_model.as_elasticsearch_dict()
     doc_type = question_dict['_type']
     del question_dict['_id']
-    del question_dict['_type']
+    # del question_dict['_type']
     response = client.update(
         settings.ES_INDEX,
         doc_type,
