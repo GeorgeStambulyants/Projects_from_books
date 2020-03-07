@@ -33,6 +33,17 @@
 				 		<a href="{% url 'user:register' %}" class="nav-link">Register</a>
 				 	</li>
 				 {% endif %}
+         <li class="nav-item">
+          <form class="form-inline"
+              action="{% url 'qanda:question-search' %}"
+              method="get">
+            <input class="form-control mr-sm-2" type="search"
+                    name="q" placeholder="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="sumbit">
+              Search
+            </button>
+          </form>
+        </li>
 			</ul>
 		</div>
 	</nav>

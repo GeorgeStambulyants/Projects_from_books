@@ -3,6 +3,7 @@ from django.contrib.auth.mixins import (
 )
 from django.views.generic import (
     CreateView, DetailView, UpdateView, DayArchiveView, RedirectView,
+    TemplateView,
 )
 from django.http import (
     HttpResponseBadRequest, HttpResponseRedirect,
@@ -18,6 +19,9 @@ from django.utils import (
 )
 from django.urls import (
     reverse,
+)
+from qanda.service.elasticsearch import (
+    search_for_questions,
 )
 
 
@@ -125,3 +129,15 @@ class TodaysQuestionList(RedirectView):
                     'year': today.year,
             }
         )
+
+
+class SearchView(TemplateView):
+    template_name = 'qanda/search.html'
+
+    def get_context_data(self, **kwargs):
+        query = self.request.GET.get('q', None)
+        ctx = super().get_context_data(query=query, **kwargs)
+        if query:
+            results = search_for_questions(query)
+            ctx['hits'] = results
+        return ctx
