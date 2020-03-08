@@ -18,13 +18,13 @@
           </li>
           {% if request.user.is_authenticated %}
             <li class="nav-item">
-              <a href="{% url "user:logout" %}" class="nav-link">
+              <a href="{% url 'user:logout' %}" class="nav-link">
                 Logout
               </a>
             </li>
           {% else %}
             <li class="nav-item">
-              <a href="{% url "user:login" %}" class="nav-link">
+              <a href="{% url 'user:login' %}" class="nav-link">
                 Login
               </a>
             </li>

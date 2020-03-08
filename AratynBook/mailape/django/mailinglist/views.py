@@ -111,7 +111,7 @@ class CreateMessageView(LoginRequiredMixin, CreateView):
     template_name = 'mailinglist/message_form.html'
 
     def get_success_url(self):
-        return reserve(
+        return reverse(
             'mailinglist:manage_mailinglist',
             kwargs={
                 'pk': self.object.mailing_list.id
@@ -141,6 +141,7 @@ class CreateMessageView(LoginRequiredMixin, CreateView):
                 form=form,
                 message=form.instance,
             )
+            return self.render_to_response(context=context)
         elif action == self.SAVE_ACTION:
             return super().form_valid(form)
         

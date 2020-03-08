@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}
+{% block body %}
   <h1>
     {{ mailinglist.name }} Management
     <a href="{% url 'mailinglist:delete_mailinglist' pk=mailinglist.id %}"
@@ -10,7 +10,7 @@
   </h1>
 
   <div>
-    <a href="{% url 'mailinglist:create_subscriber' pk=mailinglist.id %}">
+    <a href="{% url 'mailinglist:subscribe' mailinglist_pk=mailinglist.id %}">
       Subscription Link
     </a>
   </div>
@@ -30,7 +30,7 @@
           {{ message.subject }}
         </a>
       </li>
-    {% endif %}
+    {% endfor %}
   </ul>
 
   <h2>Subscibers</h2>
@@ -45,4 +45,4 @@
       </li>
     {% endfor %}
   </ul>
-{% endblock title %}
+{% endblock body %}

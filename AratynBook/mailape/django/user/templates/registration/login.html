@@ -2,7 +2,7 @@
 
 {% load crispy_forms_tags %}
 
-{% block title %}
+{% block body %}
   <h1>Login</h1>
   <form method="POST" class="col-sm-6">
     {% csrf_token %}
@@ -11,4 +11,4 @@
       Login
     </button>
   </form>
-{% endblock title %}
+{% endblock body %}

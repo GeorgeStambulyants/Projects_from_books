@@ -9,7 +9,7 @@
     <div class="col-sm-12">
       <h1>Your Mailing Lists</h1>
       <div>
-        <a href="{% url 'mailinglist:create_malinglist' %}" class="btn btn-primary">
+        <a href="{% url 'mailinglist:create_mailinglist' %}" class="btn btn-primary">
           New List
         </a>
       </div>
@@ -17,7 +17,7 @@
       <ul class="mailing-list-list">
         {% for mailinglist in mailinglist_list %}
           <li class="mailinglist-item">
-            <a href="{% 'mainlinglist:manage_mailinglist' pk=mailinglist.id %">
+            <a href="{% 'mailinglist:manage_mailinglist' pk=mailinglist.id %">
               {{ mainlinglist.name }}
             </a>
           </li>
