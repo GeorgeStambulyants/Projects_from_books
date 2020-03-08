@@ -133,3 +133,8 @@ STATIC_URL = '/static/'
 
 # Configuring crispy_forms to use bootstrap4
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# login/logout settings
+LOGIN_URL = 'user:login'
+LOGIN_REDIRECT_URL = 'mailinglist:mailinglist_list'
+LOGOUT_REDIRECT_URL = 'user:login'
