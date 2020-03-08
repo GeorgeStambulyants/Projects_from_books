@@ -39,3 +39,5 @@ class Message(models.Model):
     body = models.TextField()
     started = models.DateTimeField(default=None, null=True)
     finished = models.DateTimeField(default=None, null=True)
+
+
