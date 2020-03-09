@@ -4,6 +4,7 @@ from django.db import models
 from django.conf import settings
 from django.urls import reverse
 from mailinglist import emails
+from mailinglist import tasks
 
 
 class MailingList(models.Model):
@@ -45,7 +46,7 @@ class Subscriber(models.Model):
             self.send_confirmation_email()
     
     def send_confirmation_email(self):
-        emails.send_confirmation_email(self)
+        tasks.send_confirmation_email_to_subscriber.delay(self.id)
 
 class Message(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
