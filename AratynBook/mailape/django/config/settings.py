@@ -36,6 +36,7 @@ INSTALLED_APPS = [
 
     'crispy_forms',
     'markdownify',
+    'django_celery_results',
     
     'django.contrib.admin',
     'django.contrib.auth',
@@ -151,3 +152,7 @@ MIALIN_LIST_LINK_DOMAIN = 'http://localhost:8000'
 
 # While smpt server is not configured. Use only in development
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Celery configs
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'django-db'
