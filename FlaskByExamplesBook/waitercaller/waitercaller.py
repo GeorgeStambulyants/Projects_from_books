@@ -2,7 +2,7 @@ from flask import (
     Flask, render_template, redirect, url_for, request
 )
 from flask_login import (
-    LoginManager, login_required, login_user, logout_user
+    LoginManager, login_required, login_user, logout_user, current_user,
 )
 from mockdbhelper import (
     MockDBHelper as DBHelper,
@@ -13,7 +13,7 @@ from user import (
 from passwordhelper import (
     PasswordHelper,
 )
-
+import config
 
 app = Flask(__name__)
 app.secret_key = 'PopsZqs41yburEp4q4GzhybXXo9pRY3KSMQ6xZHxV \
@@ -31,7 +31,8 @@ def home():
 @app.route('/account')
 @login_required
 def account():
-    return render_template('account.html')
+    tables = DB.get_table(current_user.get_id())
+    return render_template('account.html', tables=tables)
 
 
 @app.route('/dashboard')
@@ -83,6 +84,24 @@ def register():
     hashed = PH.get_hash(pw1 + salt.decode())
     DB.add_user(email, salt, hashed)
     return redirect(url_for('home'))
+
+
+@app.route('/account/createtable', methods=['POST'])
+@login_required
+def account_createtable():
+    tablename = request.form.get('tablename')
+    tableid = DB.add_table(tablename, current_user.get_id())
+    new_url = config.base_url + 'newrequest/' + tableid
+    DB.update_table(tableid, new_url)
+    return redirect(url_for('account'))
+
+
+@app.route('/account/deletetable')
+@login_required
+def account_deletetable():
+    tableid = request.args.get('tableid')
+    DB.delete_table(tableid)
+    return redirect(url_for('account'))
 
 
 if __name__ == '__main__':
