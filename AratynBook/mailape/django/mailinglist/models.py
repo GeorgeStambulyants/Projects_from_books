@@ -52,7 +52,7 @@ class Subscriber(models.Model):
             using=using,
             update_fields=update_fields,
         )
-        if is_new:
+        if is_new and not self.confirmed:
             self.send_confirmation_email()
     
     def send_confirmation_email(self):
