@@ -9,13 +9,19 @@
     <title>Django blog</title>
   </head>
   <body>
-    <header>
-      <h1><a href="{% url 'blog:home' %}">Django blog</a></h1>
-    </header>
-
     <div>
-        {% block content %}
-        {% endblock content %}
+      <header>
+        <div class="nav-left"></div>
+          <h1><a href="{% url 'blog:home' %}">Django blog</a></h1>
+        </div>
+
+        <div class="nav-right">
+          <a href="{% url 'blog:post_new' %}">+ New Blog Post</a>
+        </div>
+      </header>
+
+          {% block content %}
+          {% endblock content %}
     </div>
       
   </body>
