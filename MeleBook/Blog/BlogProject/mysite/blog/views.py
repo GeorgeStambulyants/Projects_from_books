@@ -59,7 +59,7 @@ class PostListView(ListView):
 
 
 def post_list(request, tag_slug=None):
-    object_list = Post.objects.all()  #  Can use Post.published.all(), but all posts status is draft, soo
+    object_list = Post.objects.all()
     tag = None
 
     if tag_slug:
@@ -70,10 +70,10 @@ def post_list(request, tag_slug=None):
     try:
         posts = paginator.page(page)
     except PageNotAnInteger:
-        # Еслт страница не является целым числом, возвращаем первую страницу
+        # If page is not an integer, return first page
         posts = paginator.page(1)
     except EmptyPage:
-        # Если номер страницы больше, чем общее кол-во страниц, возвращаем последнюю
+        # If page number is greater than all the pages, return the last page
         posts = paginator.page(paginator.num_pages)
     return render(request, 'blog/post/list.html', {'page': page, 'posts': posts, 'tag': tag})
 
