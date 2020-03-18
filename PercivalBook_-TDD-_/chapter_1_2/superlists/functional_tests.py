@@ -12,6 +12,11 @@ class NewVisitorTest(unittest.TestCase):
     def tearDown(self):
         self.browser.quit()
     
+    def check_for_row_in_list_table(self, row_text):
+        table = self.browser.find_element_by_id('id_list_table')
+        rows = table.find_elements_by_tag_name('tr')
+        self.assertIn(row_text, [row.text for row in rows])
+    
     def test_can_start_a_list_and_retrieve_it_later(self):
         # Edit heard about new cool applications with todo-lists
 
@@ -38,9 +43,7 @@ class NewVisitorTest(unittest.TestCase):
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
 
-        table = self.browser.find_element_by_id('id_list_table')
-        rows = table.find_elements_by_tag_name('tr')
-        self.assertIn('1: Buy fruits', [row.text for row in rows])
+        self.check_for_row_in_list_table('1: Buy fruits')
 
         # The text fields is still on page ready to another input
         # Edit enters 'Buy vegitables'
@@ -50,9 +53,8 @@ class NewVisitorTest(unittest.TestCase):
         time.sleep(1)
         
         # Page refreshes again and now there are two elements in the list
-        table = self.browser.find_element_by_id('id_list_table')
-        rows = table.find_elements_by_tag_name('tr')
-        self.assertIn('2: Buy vegetables', [row.text for row in rows])
+        self.check_for_row_in_list_table('1: Buy fruits')
+        self.check_for_row_in_list_table('2: Buy vegetables')
         # Edit is interested if the site will remember her todo-list
         # Hey, now she sees that our site generated for her unique URL - there
         # is a little message on the page with this information
