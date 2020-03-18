@@ -40,21 +40,23 @@ class NewVisitorTest(unittest.TestCase):
 
         table = self.browser.find_element_by_id('id_list_table')
         rows = table.find_elements_by_tag_name('tr')
-        self.assertTrue(
-            any(row.text == '1: Buy fruits' for row in rows),
-            'New list\'s item is not in the table', 
-        )
+        self.assertIn('1: Buy fruits', [row.text for row in rows])
 
         # The text fields is still on page ready to another input
         # Edit enters 'Buy vegitables'
-        self.fail('Finish the test!')
-
-        # Page refreshesassert 'Django' in browser.title again and now there are two elements in the list
-
+        inputbox = self.browser.find_element_by_id('id_new_item')
+        inputbox.send_keys('Buy vegetables')
+        inputbox.send_keys(Keys.ENTER)
+        time.sleep(1)
+        
+        # Page refreshes again and now there are two elements in the list
+        table = self.browser.find_element_by_id('id_list_table')
+        rows = table.find_elements_by_tag_name('tr')
+        self.assertIn('2: Buy vegetables', [row.text for row in rows])
         # Edit is interested if the site will remember her todo-list
         # Hey, now she sees that our site generated for her unique URL - there
-        # is a little message on the page with rhis information
-
+        # is a little message on the page with this information
+        self.fail('Finish the test!')
         # She goes to that URL and her list is there
 
         # Edit is satisfied now and she goes to bed
