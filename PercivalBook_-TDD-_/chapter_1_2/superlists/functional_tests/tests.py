@@ -1,10 +1,11 @@
+from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
 import unittest
 
 
-class NewVisitorTest(unittest.TestCase):
+class NewVisitorTest(LiveServerTestCase):
     
     def setUp(self):
         self.browser = webdriver.Firefox()
@@ -21,7 +22,7 @@ class NewVisitorTest(unittest.TestCase):
         # Edit heard about new cool applications with todo-lists
 
         # She decides check out the home page ot the application
-        self.browser.get('http://localhost:8000')
+        self.browser.get(self.live_server_url)
 
         # She sees that the title and the header of the page reference the todo-list
         self.assertIn('To-Do', self.browser.title)
