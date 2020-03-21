@@ -25,13 +25,17 @@ SECRET_KEY = 'ggu6^b0rk1q1=jy^dy)&3%rzut7dr4ity4qdnst)3l=b^-bg0%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'mysite.com', 'localhost', '127.0.0.1',
+]
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'account.apps.AccountConfig',
+
+    'social_django',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -133,4 +137,17 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.google.GoogleOAuth2',
 ]
+
+SOCIAL_AUTH_FACEBOOK_KEY = ''  # Facebook App ID. Need to be provided
+SOCAIL_AUTH_FACEBOOK_SECRET = ''  # Facebook App Secret. Need to be provided
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+SOCIAL_AUTH_TWITTER_KEY = ''  # Twitter Consumer Key. Need to be provided
+SOCIAL_AUTH_TWITTER_SECRET = ''  # Twitter Consume Secret. Need to be provided
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = ''  # Google Consumer Key. Need to be provided
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = ''  # Google Consumer Secret. Need to be provided
