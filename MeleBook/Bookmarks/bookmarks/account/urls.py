@@ -54,4 +54,9 @@ urlpatterns = [
         account_views.register,
         name='register'
     ),
+    path(
+        'edit/',
+        account_views.edit,
+        name='edit'
+    ),
 ]
