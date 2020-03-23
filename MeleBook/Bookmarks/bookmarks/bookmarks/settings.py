@@ -24,6 +24,7 @@ SECRET_KEY = 'ggu6^b0rk1q1=jy^dy)&3%rzut7dr4ity4qdnst)3l=b^-bg0%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+THUMBNAIL_DEBUG = True
 
 ALLOWED_HOSTS = [
     'mysite.com', 'localhost', '127.0.0.1', '916a4ca6.ngrok.io'
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
     'images.apps.ImagesConfig',
 
     'social_django',
+    'sorl.thumbnail',
 
     'django.contrib.admin',
     'django.contrib.auth',
