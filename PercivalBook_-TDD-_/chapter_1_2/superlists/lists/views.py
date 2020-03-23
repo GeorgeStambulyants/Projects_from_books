@@ -7,11 +7,19 @@ def home_page(request):
     if request.method == 'POST':
         new_item_text = request.POST['item_text']
         Item.objects.create(text=new_item_text)
-        return redirect('/')
+        return redirect('lists/unique-url/')
     items = Item.objects.all()
     return render(
         request,
         'lists/home.html',
+    )
+
+
+def view_list(request):
+    items = Item.objects.all()
+    return render(
+        request,
+        'lists/list.html',
         context={
             'items': items
         }
