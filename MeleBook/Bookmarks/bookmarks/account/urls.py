@@ -65,6 +65,11 @@ urlpatterns = [
         name='user_list',
     ),
     path(
+        'users/follow/',
+        account_views.user_follow,
+        name='user_follow',
+    ),
+    path(
         'users/<username>/',
         account_views.user_detail,
         name='user_detail',
