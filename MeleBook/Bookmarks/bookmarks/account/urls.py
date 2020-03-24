@@ -59,4 +59,14 @@ urlpatterns = [
         account_views.edit,
         name='edit'
     ),
+    path(
+        'users/',
+        account_views.user_list,
+        name='user_list',
+    ),
+    path(
+        'users/<username>/',
+        account_views.user_detail,
+        name='user_detail',
+    ),
 ]
