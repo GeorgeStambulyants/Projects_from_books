@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'shop.apps.ShopConfig',
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
+    'payment.apps.PaymentConfig',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -128,3 +129,19 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 CART_SESSION_ID = 'cart'
+
+# Braintree configs
+BRAINTREE_MERCHANT_ID = 'XXX'  # Provide one
+BRAINTREE_PUBLIC_KEY = 'XXX'  # same
+BRAINTREE_SECRET_KEY = 'XXX'  # same
+
+from braintree import Configuration, Environment
+
+Configuration.configure(
+    Environment.Sandbox,
+    BRAINTREE_MERCHANT_ID,
+    BRAINTREE_PUBLIC_KEY,
+    BRAINTREE_SECRET_KEY,
+)
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
