@@ -4,6 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/base.css">
 
   <title>Landing page</title>
 </head>
@@ -27,16 +28,16 @@
     <div class="container">
       <!-- row 2 -->
       <div class="row">
-        <div class="offset-md-4 col-md-3">
+        <div class="offset-md-4 col-md-4 col-sm-6">
           <h3>
             Some text with <small>secondary text</small>
           </h3>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-4 col-sm-6">
           <h3>
             Add to your favorites
             <small>
-              <kbd><kbd>ctrl</kbd> + <kbd>d</kbd></kbd>
+              <kbd class="nowrap"><kbd>ctrl</kbd> + <kbd>d</kbd></kbd>
             </small>
           </h3>
         </div>
@@ -44,26 +45,26 @@
 
       <!-- row 3 -->
       <div class="row">
-        <div class="col-md-4">
-          <pre>
+        <div class="col-md-3 col-5">
+          <code>
             &lt;p&gt;I love programming!&lt;/p&gt;
             &lt;p&gt;This paragraph is on my landing page&lt;/p&gt;
             &lt;br/&gt;An image must be here
             &lt;br/&gt;
             &lt;p&gt;Bootstrap by example&lt;/p&gt;
-          </pre>
+          </code>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-9 col-7">
           <img src="imgs/center.png" alt="" class="img-fluid">
         </div>
       </div>
 
       <!-- row 4 -->
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3 d-none d-sm-block col-sm-3">
           <img src="imgs/bs.png" class="img-fluid">
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 offset-1 col-11 col-sm-6 offset-sm-0">
           <blockquote class="blockquote">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.btn-primary
               Integer posuere erat a ante
@@ -75,8 +76,11 @@
             </footer>
           </blockquote>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 col-7 col-sm-3">
           <img src="imgs/packt.png" alt="" class="img-fluid">
+        </div>
+        <div class="col-5 d-block d-sm-none">
+          <img src="imgs/bs.png" alt="" class="img-fluid">
         </div>
       </div>
 
