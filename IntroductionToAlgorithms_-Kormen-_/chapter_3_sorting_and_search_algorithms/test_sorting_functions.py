@@ -2,6 +2,7 @@ import random
 import sys
 
 from selection_sort import selection_sort
+from insertion_sort import insertion_sort
 
 
 def test_sorting_functions(func):
@@ -76,4 +77,7 @@ def test_sorting_functions(func):
 if __name__ == '__main__':
     print('Selection sort:')
     test_sorting_functions(selection_sort)
-    print()
+    print('---------------')
+
+    print('Insertion sort:')
+    test_sorting_functions(insertion_sort)
