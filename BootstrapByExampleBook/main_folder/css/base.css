@@ -1,10 +1,43 @@
-.nowrap {
-    white-space: nowrap;
+header {
+    background-color: #f8f8f8;
 }
 
-@media (max-width: 48em) {
-    table .btn {
-        font-size: 0.75em;
-        font-size: 3.5vw;
-    }
+header ul {
+    margin: 0;
+}
+
+header a,
+header li {
+    padding: 1.4rem 0;
+    color: #777777;
+    font-weight: bold;
+}
+
+section#intro-header {
+    background-image: url(../imgs/landscape.jpg);
+    background-size: cover;
+}
+
+section#intro-header .wrap-headline {
+    position: relative;
+    padding-top: 20%;
+    padding-bottom: 20%;
+}
+
+section#intro-header h1,
+section#intro-header h2 {
+    color: #fff;
+}
+
+section#intro-header h2 {
+    font-size: 1.5rem;
+}
+
+section#intro-header hr {
+    width: 10%;
+}
+
+section#intro-header .btn-default {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
 }
