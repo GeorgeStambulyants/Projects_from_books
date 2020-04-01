@@ -1,6 +1,7 @@
 # Merge sort
 #
-# Time: O(n*lg(n))
+# Time: O(n*lg(n)) - this is not the worst case.
+# This algorithm sorts any array by this time
 
 
 def merge_sort(array):
