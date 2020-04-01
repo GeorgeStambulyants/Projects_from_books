@@ -32,7 +32,14 @@ def merge(arr_1, arr_2):
             j += 1
             k += 1
 
-    merged_arr[k:] = arr_1[i:]
-    merged_arr[k:] = arr_2[j:]
+    while i < len(arr_1):
+        merged_arr[k] = arr_1[i]
+        i += 1
+        k += 1
+
+    while j < len(arr_2):
+        merged_arr[k] = arr_2[j]
+        k += 1
+        j += 1
 
     return merged_arr
