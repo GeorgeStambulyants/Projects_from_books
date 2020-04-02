@@ -4,7 +4,8 @@
 # This algorithm sorts any array by this time
 
 
-def merge_sort(array):
+# p, r - don't need them here. They are for quick sort.
+def merge_sort(array, p=None, r=None):
     if len(array) <= 1:
         return None
     p = 0
