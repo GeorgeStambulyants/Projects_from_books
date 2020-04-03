@@ -69,7 +69,6 @@ class NewVisitorTest(LiveServerTestCase):
         # that the site has generated a unique URL for her -- there is some
         # explanatory text to that effect
 
-        self.fail('Finish the test!')
         # She visits that URL - her to-do list is still there.
 
         # Satisfied, she goes back to sleep
@@ -99,6 +98,8 @@ class NewVisitorTest(LiveServerTestCase):
 
         # Francis starts a new list by entering a new item
         # He is less interesting than Edith
+
+        inputbox = self.browser.find_element_by_id('id_new_item')
         inputbox.send_keys('Buy milk')
         inputbox.send_keys(Keys.ENTER)
         self.wait_for_row_in_list_table('1: Buy milk')
@@ -112,5 +113,7 @@ class NewVisitorTest(LiveServerTestCase):
         page_text = self.browser.find_element_by_tag_name('body').text
         self.assertNotIn('Buy peacock feathers', page_text)
         self.assertIn('Buy milk', page_text)
+
+        self.fail('Finish the test!')
 
         # Satisfied, they both go back to sleep
