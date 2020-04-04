@@ -5,7 +5,6 @@
 # it is sorted in descending order
 #
 # Sorting algorithm can be improved, if the pivot element is selected in
-# a different way
 
 
 def quick_sort(array, p, r):
