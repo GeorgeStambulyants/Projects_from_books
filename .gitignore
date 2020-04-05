@@ -16,3 +16,4 @@ htmlcov
 chromedriver
 db.sqlite3
 ngrok
+static_for_dep
