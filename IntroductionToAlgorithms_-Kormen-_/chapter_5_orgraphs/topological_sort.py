@@ -1,6 +1,7 @@
 # Topological sort
 #
-# Time:
+# Time: O(n + m), where n is the number of vertices 
+# and m is the number if edges
 
 
 class Graph:
