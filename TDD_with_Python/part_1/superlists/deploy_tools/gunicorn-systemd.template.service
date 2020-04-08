@@ -1,0 +1,11 @@
+[Unit]
+Desctiption=Gunicorn server for SITENAME
+
+[Service]
+Restart=on-failure
+User=george_stamb
+WorkingDirectory=/home/george_stamb/sites/SITENAME/source
+ExecStart=/home/george_stamb/sites/SITENAME/virtualenv/bin/gunicorn --bind unix:/tmp/SITENAME.socket superlists.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
