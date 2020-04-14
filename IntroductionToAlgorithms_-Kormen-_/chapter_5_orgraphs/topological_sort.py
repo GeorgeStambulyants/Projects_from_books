@@ -17,9 +17,7 @@ class Graph:
             and each element is in_degree
         '''
         self.number_of_vertices = number_of_vertices
-        self.graph = {
-            vertex: [] for vertex in range(self.number_of_vertices)
-        }
+        self.graph = [[] for _ in range(self.number_of_vertices)]
         self.vertex_in_degree = [0] * self.number_of_vertices
 
     def add_edge(self, from_, to):
