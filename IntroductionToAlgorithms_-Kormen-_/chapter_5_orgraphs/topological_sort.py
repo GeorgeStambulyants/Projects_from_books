@@ -39,8 +39,6 @@ class Graph:
         ]
 
         while next_:
-            print(next_)
-            print(in_degree)
             u = next_.pop()
             linear_ordering.append(u)
             for vert in self.graph[u]:
