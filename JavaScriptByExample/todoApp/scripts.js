@@ -12,7 +12,6 @@ class ToDoClass {
         let tasksHtml = this.tasks.reduce((html, task, index) => html +=
         this.generateTaskHtml(task, index), '');
         document.getElementById('taskList').innerHTML = tasksHtml
-        document.getElementById('hey').innerHTML = 'HEY'
     }
 
     generateTaskHtml(task, index) {
@@ -28,7 +27,7 @@ class ToDoClass {
                         value=""
                         class=""
                         ${task.isComplete?'checked':''}
-                        checked>
+                        >
                     </label>
                 </div>
                 <div class="col-md-10 col-xs-10 col-lg-10 col-sm-10 task-text
@@ -43,6 +42,17 @@ class ToDoClass {
                 </div>
             </li>
         `;
+    }
+
+    toggleTaskStatus(index) {
+        this.tasks[index].isComplete = !this.tasks[index].isComplete;
+        this.loadTasks();
+    }
+
+    deleteTask(event, taskIndex) {
+        event.preventDefault();
+        this.tasks.splice(taskIndex, 1);
+        this.loadTasks();
     }
 }
 
