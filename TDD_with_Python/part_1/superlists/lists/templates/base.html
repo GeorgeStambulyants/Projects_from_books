@@ -14,7 +14,7 @@
       <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
           <a href="/" class="navbar-brand">Superlists</a>
-          <form action="#" class="navbar-form navbar-right" method="post">
+          <form action="{% url 'send_login_mail' %}" class="navbar-form navbar-right" method="post">
             <span>Enter email to log in:</span>
             <input type="text" name="email" class="form-control">
             {% csrf_token %}
