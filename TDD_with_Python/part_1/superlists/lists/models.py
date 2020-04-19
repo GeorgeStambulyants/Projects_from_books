@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.conf import settings
 
 
 class Item(models.Model):
@@ -18,6 +19,10 @@ class Item(models.Model):
 
 
 class List(models.Model):
+    owner = models.ForeignKey(
+        settings.AUTH_USER_MODEL, blank=True, null=True,
+        on_delete=models.CASCADE
+    )
     
     objects = models.Manager()
 
