@@ -1,10 +1,15 @@
 from django.urls import path
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, DetailView
 
-from main import views
+from main import views, models
 
 
 urlpatterns = [
+    path(
+        'product/<slug:slug>/',
+        DetailView.as_view(model=models.Product),
+        name='product'
+    ),
     path(
         'products/<slug:tag>/',
         views.ProductListView.as_view(),

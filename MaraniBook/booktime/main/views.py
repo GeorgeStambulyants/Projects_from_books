@@ -34,4 +34,3 @@ class ProductListView(ListView):
             products=models.Product.objects.active()
         
         return products.order_by('name')
-    
