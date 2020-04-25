@@ -17,3 +17,5 @@ chromedriver
 db.sqlite3
 ngrok
 static_for_dep
+node_modules
+dist
