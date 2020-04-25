@@ -30,4 +30,9 @@ urlpatterns = [
         views.ContactUsView.as_view(),
         name='contact_us'
     ),
+    path(
+        'signup/',
+        views.SignupView.as_view(),
+        name='signup'
+    )
 ]
