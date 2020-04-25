@@ -6,6 +6,19 @@ class ToDoClass {
             {task: 'Renew Library Account', isComplete: false},
         ];
         this.loadTasks();
+        this.addEventListeners();
+    }
+
+    addEventListeners() {
+        document.getElementById('addTask').addEventListener(
+            'keypress', event =>
+                {
+                    if(event.KeyCode === 13) {
+                        this.addTask(event.target.value);
+                        event.target.value = '';
+                    }
+                }
+            );
     }
 
     loadTasks() {
