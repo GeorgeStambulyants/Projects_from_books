@@ -41,6 +41,13 @@
     {% block content %}
     {% endblock content %}
 
+    {% if request.basket %}
+      <div>
+        {{ request.basket.count }}
+        items in basket
+      </div>
+    {% endif %}
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="{% static 'js/jquery.min.js' %}"></script>
