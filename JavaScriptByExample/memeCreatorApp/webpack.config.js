@@ -8,7 +8,13 @@ module.exports = {
     },
     output: {
         path: __dirname + '/dist',
-        filename: '[name].js'
+        filename: '[name].js',
+        publicPath: '/dist/',
+    },
+    devServer: {
+        compress: true,
+        port: 8080,
+        hot: true,
     },
     module: {
         rules: [
@@ -24,7 +30,23 @@ module.exports = {
             },
             {
                 test: /\.(less|css)$/,
-                use: ['style-loader', 'css-loader', 'less-loader']
+                use: [
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    },
+                    {
+                        loader: 'less-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    }
+                ]
             },
             {
                 test: /\.(svg|eot|ttf|woff|woff2)$/,
@@ -53,7 +75,9 @@ module.exports = {
         new webpack.ProvidePlugin({
             jquery: 'jquery',
             $: 'jquery',
-            jquery: 'jquery'
+            jquery: 'jquery',
+            devtool: 'source-map',
         }),
-    ]
+        new webpack.HotModuleReplacementPlugin(),
+    ],
 }
