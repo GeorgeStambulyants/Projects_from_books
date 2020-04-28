@@ -23,9 +23,37 @@ module.exports = {
                 }
             },
             {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                test: /\.(less|css)$/,
+                use: ['style-loader', 'css-loader', 'less-loader']
+            },
+            {
+                test: /\.(svg|eot|ttf|woff|woff2)$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    name: 'fonts/[name].[ext]'
+                }
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                loaders: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 10000,
+                            name: 'images/[name].[ext]'
+                        }
+                    },
+                'img-loader'
+                ],
             },
         ],
     },
+    plugins: [
+        new webpack.ProvidePlugin({
+            jquery: 'jquery',
+            $: 'jquery',
+            jquery: 'jquery'
+        }),
+    ]
 }
