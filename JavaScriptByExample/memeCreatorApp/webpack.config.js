@@ -73,9 +73,8 @@ module.exports = {
     },
     plugins: [
         new webpack.ProvidePlugin({
-            jquery: 'jquery',
             $: 'jquery',
-            jquery: 'jquery',
+            jQuery: 'jquery',
             devtool: 'source-map',
         }),
         new webpack.HotModuleReplacementPlugin(),
