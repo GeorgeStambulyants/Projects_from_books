@@ -8,6 +8,12 @@ infinity = float('inf')
 
 class Graph(Graph):
     def __init__(self, number_of_vertices):
+        '''
+            in self.shortest each index represents respective vertex
+            and its value represents the shortest path to
+            it from fiction_start, i.e.
+            the shortest path from any other vertex
+        '''
         self.number_of_vertices = number_of_vertices
         self.graph = [[] for _ in range(self.number_of_vertices)]
         self.vertex_in_degree = [0] * self.number_of_vertices
