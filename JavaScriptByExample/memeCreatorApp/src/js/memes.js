@@ -37,12 +37,44 @@ class Memes {
 
                     context.clearRect(0, 0, this.$canvas.height, this.$canvas.width);
                     context.drawImage(image, 0, 0);
+
+                    let fontsize = (
+                        (this.$canvas.width + this.$canvas.height) / 2
+                    ) * 4 / 100;
+                    
+                    context.font = `${fontsize}pt sans-serif`;
+                    context.textAlign = 'center';
+                    context.textBaseline = 'top';
+
+                    context.lineWidth = fontsize / 5;
+                    context.strokeStyle = 'black';
+
+                    context.fillStyle = 'white';
+                    context.lineJoin = 'round';
+
+                    const topText = this.$topTextInput.value.toUpperCase();
+                    const bottomText = this.$bottomTextInput.value.toUpperCase();
+
+                    context.strokeText(
+                        topText, this.$canvas.width / 2, this.$canvas.height * (5/100)
+                    );
+                    context.fillText(
+                        topText, this.$canvas.width / 2, this.$canvas.height * (5/100)
+                    );
+
+                    context.strokeText(
+                        bottomText,
+                        this.$canvas.width / 2, this.$canvas.height * (90/100)
+                    );
+                    context.fillText(
+                        bottomText,
+                        this.$canvas.width / 2, this.$canvas.height * (90/100)
+                    );
                 };
 
                 image.src = reader.result
             };
             reader.readAsDataURL(this.$imageInput.files[0]);
-            console.log('This will get printed first')
         }
     }
 
@@ -56,6 +88,29 @@ class Memes {
         inputNodes.forEach(
             element => element.addEventListener('change', this.createMeme)
         );
+        this.$downloadButton.addEventListener('click', this.downloadMeme.bind(this));
+    }
+
+    downloadMeme() {
+        if (!this.$imageInput.files[0]) {
+            this.$imageInput.parentElement.classList.add('has-error');
+            return;
+        }
+        if (this.$bottomTextInput.value === '') {
+            this.$imageInput.parentElement.classList.remove('has-error');
+            this.$bottomTextInput.parentElement.classList.add('has-error');
+            return;
+        }
+        this.$imageInput.parentElement.classList.remove('has-error');
+        this.$bottomTextInput.parentElement.classList.remove('has-error');
+
+        const imageSource = this.$canvas.toDataURL('image/png');
+        let att = document.createAttribute('href');
+        att.value = imageSource.replace(
+            /^data:image\/[^;]/,
+            'data:application/octet-stream'
+        );
+        this.$downloadButton.setAttributeNode(att);
     }
 }
 
