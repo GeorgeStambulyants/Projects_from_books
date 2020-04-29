@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     
     'django_extensions',
     'debug_toolbar',
+    'django_tables2',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -43,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+DJANGO_TABLES2_TEMPLATE = 'django_tables2/bootstrap.html'
 
 AUTH_USER_MODEL = 'main.User'
 
