@@ -26,7 +26,23 @@ class Memes {
         let context = this.$canvas.getContext('2d');
 
         if (this.$imageInput.files && this.$imageInput.files[0]) {
-            console.log('rendering');
+            let reader = new FileReader();
+
+            reader.onload = () => {
+                let image = new Image();
+
+                image.onload = () => {
+                    this.$canvas.height = image.height;
+                    this.$canvas.width = image.width;
+
+                    context.clearRect(0, 0, this.$canvas.height, this.$canvas.width);
+                    context.drawImage(image, 0, 0);
+                };
+
+                image.src = reader.result
+            };
+            reader.readAsDataURL(this.$imageInput.files[0]);
+            console.log('This will get printed first')
         }
     }
 
