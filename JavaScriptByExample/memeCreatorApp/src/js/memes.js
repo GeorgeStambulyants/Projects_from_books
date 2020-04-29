@@ -12,6 +12,7 @@ class Memes {
         this.$downloadButton = document.querySelector('#downloadMeme');
 
         this.createCanvas();
+        this.addEventListeners();
     }
 
     createCanvas() {
@@ -20,7 +21,21 @@ class Memes {
         this.$canvas.height = canvasHeight;
         this.$canvas.width = canvasWidth;
     }
+
+    createMeme() {
+        console.log('rendered');
+    }
+
+    addEventListeners() {
+        let inputNodes = [this.$topTextInput, this.$bottomTextInput, this.$imageInput]
+
+        inputNodes.forEach(
+            element => element.addEventListener('keyup', this.createMeme)
+        );
+        inputNodes.forEach(
+            element => element.addEventListener('change', this.createMeme)
+        );
+    }
 }
 
 new Memes();
-console.log('hey');
