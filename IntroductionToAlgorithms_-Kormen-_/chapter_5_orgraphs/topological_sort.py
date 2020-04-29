@@ -31,6 +31,9 @@ class Graph:
         return '{}'.format(self.graph)
 
     def topological_sort(self):
+        '''
+            next_ - array of vertices with their in_degree == 0
+        '''
         linear_ordering = []
         in_degree = self.vertex_in_degree[:]
         next_ = [
