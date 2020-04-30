@@ -30,7 +30,7 @@ class Graph(Graph):
         self.weight[(from_, to)] = weight
 
     def get_weight(self, u, v):
-        return self.weight.get(u, v)
+        return self.weight.get((u, v))
 
     def relax(self, u, v):
         if self.shortest[u] + self.get_weight(u, v) < self.shortest[v]:
