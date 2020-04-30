@@ -46,7 +46,7 @@ admin.site.register(models.ProductImage, ProductImageAdmin)
 
 @admin.register(models.User)
 class UserAdmin(DjangoUserAdmin):
-    fieldset = (
+    fieldsets = (
         (None, {'fields': ('email', 'password')}),
         (
             'Personal info',
@@ -59,7 +59,7 @@ class UserAdmin(DjangoUserAdmin):
                     'is_active',
                     'is_staff',
                     'is_superuser',
-                    'group',
+                    'groups',
                     'user_permissions',
                 )
             },
