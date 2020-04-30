@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django_tables2',
     'widget_tweaks',
     'rest_framework',
+    'django_filters',
 
     'django.contrib.admin',
     'django.contrib.auth',
