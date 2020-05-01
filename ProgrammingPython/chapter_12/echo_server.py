@@ -5,7 +5,7 @@ my_host = ''
 my_port = 50007
 
 socketobj = socket(AF_INET, SOCK_STREAM)
-socketobj.bind(my_host, my_post)
+socketobj.bind((my_host, my_port))
 socketobj.listen(5)
 
 
