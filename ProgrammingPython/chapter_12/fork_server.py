@@ -1,3 +1,5 @@
+# !!! Program does not work on Windows !!!
+
 import os
 import sys
 import time
