@@ -1,10 +1,8 @@
-djvenv
-venv
+
+*venv
 env
 bootstrap-4.4.1-dist
 bootstrap-4.4.1-dist.zip
-flvenv
-bookmarksvenv
 .idea
 __pycache__
 *.log
@@ -19,3 +17,4 @@ ngrok
 static_for_dep
 node_modules
 dist
+exports.sh
