@@ -7,7 +7,7 @@
 {% endblock title %}
 
 {% block content %}
-  <div class="product detail">
+  <div class="product-detail">
     <img
         src="{% if product.image %}{{ product.image.url }}{% else %}
               {% static 'img/no_image.png' %}{% endif %}">
@@ -17,7 +17,7 @@
         {{ product.category }}
       </a>
     </h2>
-    <p class="price">{{ product.price }}</p>
+    <p class="price">${{ product.price }}</p>
     {{ product.description|linebreaks }}
   </div>
 {% endblock content %}
