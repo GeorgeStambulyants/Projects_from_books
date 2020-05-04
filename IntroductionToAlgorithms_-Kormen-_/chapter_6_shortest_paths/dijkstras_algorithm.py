@@ -38,6 +38,9 @@ class Graph:
             for v in self.graph[min_vert]:
                 self.relax(min_vert, v)
 
+    def __len__(self):
+        return self.number_of_vertices
+
 
 if __name__ == '__main__':
     print('TEST:')
