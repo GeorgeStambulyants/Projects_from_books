@@ -14,7 +14,7 @@ def getfile(file, site, dir, user=(), *, verbose=True, refetch=False):
                 remote = FTP(site)
                 remote.login(*user)
                 remote.cwd(dir)
-                remote.retrbinary('RETR' + file, local.write, 1024)
+                remote.retrbinary('RETR ' + file, local.write, 1024)
                 remote.quit()
             finally:
                 local.close()

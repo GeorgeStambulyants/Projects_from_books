@@ -24,6 +24,6 @@ if nonpassive:
 
 print('Downloading')
 localfile = open(filename, 'wb')
-connection.retrbinary('RETR' + filename, localfile.write, 1024)
+connection.retrbinary('RETR ' + filename, localfile.write, 1024)
 connection.quit()
 localfile.close()
