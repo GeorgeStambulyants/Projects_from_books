@@ -60,7 +60,7 @@ class Cart:
             yield item
     
     def __len__(self):
-        return sum(item['quantity'] for item in cart.values())
+        return sum(item['quantity'] for item in self.cart.values())
 
     def get_total_cost(self):
         return sum(
