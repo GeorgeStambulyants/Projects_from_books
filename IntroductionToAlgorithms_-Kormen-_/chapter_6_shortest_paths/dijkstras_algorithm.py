@@ -37,3 +37,29 @@ class Graph:
 
             for v in self.graph[min_vert]:
                 self.relax(min_vert, v)
+
+
+if __name__ == '__main__':
+    print('TEST:')
+    graph = Graph(5, 0)
+    graph.add_edge(0, 1, 6)
+    graph.add_edge(0, 3, 4)
+    graph.add_edge(1, 2, 3)
+    graph.add_edge(1, 3, 2)
+    graph.add_edge(2, 4, 4)
+    graph.add_edge(3, 1, 1)
+    graph.add_edge(3, 2, 9)
+    graph.add_edge(3, 4, 3)
+    graph.add_edge(4, 2, 5)
+    graph.add_edge(4, 0, 7)
+    shortest = [0, 5, 8, 4, 7]
+    pred = [None, 3, 1, 0, 3]
+
+    graph.dijkstras_algorithm()
+    if graph.shortest == shortest and graph.pred == pred:
+        print('OK')
+    else:
+         raise AssertionError(
+            f'self.shortest = {graph.shortest}, shortest = {shortest}; '
+            f'self.pred = {graph.pred}, pred = {pred}'
+        )
