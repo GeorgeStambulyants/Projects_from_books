@@ -18,3 +18,4 @@ static_for_dep
 node_modules
 dist
 exports.sh
+.env
