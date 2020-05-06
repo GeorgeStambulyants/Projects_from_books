@@ -130,3 +130,17 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 CART_SESSION_ID = 'cart'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Braintree settings
+BRAINTREE_MERCHANT_ID = os.environ.get('MERCHANT_KEY')
+BRAINTREE_PUBLIC_KEY = os.environ.get('PUBLIC_KEY')
+BRAINTREE_PRIVATE_KEY = os.environ.get('PRIVATE_KEY')
+
+import braintree
+
+BRAINTTREE_CONF = braintree.Configuration(
+    braintree.Environment.Sandbox,
+    BRAINTREE_MERCHANT_ID,
+    BRAINTREE_PUBLIC_KEY,
+    BRAINTREE_PRIVATE_KEY,
+)
