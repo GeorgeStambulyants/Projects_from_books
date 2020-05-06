@@ -80,7 +80,7 @@ class Home {
             .catch(() => {
                 this.$submit.classList.remove('hidden');
                 this.$loadingIndicator.classList.add('hidden');
-                toastr.errors('Error!')
+                toastr.error('Error!')
             });
     }
 
