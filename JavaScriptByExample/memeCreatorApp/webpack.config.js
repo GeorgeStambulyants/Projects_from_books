@@ -3,6 +3,13 @@ const webpack = require('webpack');
 
 const isProduction = (process.env.NODE_ENV === 'production');
 
+const PurifyCSSPlugin = require('purifycss-webpack');
+const glob = require('glob');
+
+const extractLess = new ExtractTextPlugin({
+    filename: "[name].css",
+});
+
 module.exports = {
     context: __dirname,
     entry: {
@@ -33,23 +40,26 @@ module.exports = {
             },
             {
                 test: /\.(less|css)$/,
-                use: [
-                    {
-                        loader: 'style-loader'
-                    },
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            sourceMap: true
+                use: extractLess.extract({
+                    use: [
+                        {
+                            loader: 'style-loader'
+                        },
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        },
+                        {
+                            loader: 'less-loader',
+                            options: {
+                                sourceMap: true
+                            }
                         }
-                    },
-                    {
-                        loader: 'less-loader',
-                        options: {
-                            sourceMap: true
-                        }
-                    }
-                ]
+                    ],
+                    fallback: 'style-loader',
+                })
             },
             {
                 test: /\.(svg|eot|ttf|woff|woff2)$/,
@@ -85,5 +95,16 @@ module.exports = {
             ENVIRONMENT: JSON.stringify(process.env.NODE_ENV),
             CONSTANT_VALUE: JSON.stringify(process.env.CONSTANT_VALUE),
         }),
+        extractLess,
+        new PurifyCSSPlugin({
+            paths: glob.sync(__dirname + '/*.html'),
+            minimize: true,
+        }),
     ],
+}
+
+if (isProduction) {
+    module.exports.plugins.push(
+        new webpack.optimize.UglifyJsPlugin({sourceMap: true})
+    );
 }
