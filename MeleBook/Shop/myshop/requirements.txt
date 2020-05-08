@@ -12,6 +12,7 @@ chardet==3.0.4
 cssselect2==0.3.0
 defusedxml==0.6.0
 Django==3.0.5
+django-localflavor==3.0.1
 django-parler==2.0.1
 django-rosetta==0.9.4
 flower==0.9.4
@@ -28,6 +29,7 @@ polib==1.1.0
 pycparser==2.20
 pylint==2.5.0
 Pyphen==0.9.5
+python-stdnum==1.13
 pytz==2020.1
 requests==2.23.0
 six==1.14.0
