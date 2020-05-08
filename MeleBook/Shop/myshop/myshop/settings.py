@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'coupons.apps.CouponsConfig',
 
     'rosetta',
+    'parler',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -161,3 +162,14 @@ BRAINTREE_CONF = braintree.Configuration(
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'en'},
+        {'code': 'ru'},
+    ),
+    'default': {
+        'fallback': 'en',
+        'hide_untranslated': False,
+    }
+}
