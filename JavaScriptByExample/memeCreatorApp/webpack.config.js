@@ -10,6 +10,19 @@ const extractLess = new ExtractTextPlugin({
     filename: "[name].css",
 });
 
+const fileNamePrefix = isProduction ? '[chunkhash].' : '';
+
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const pathsToClean = [
+    'dist'
+];
+const cleanOptions = {
+    root: __dirname,
+    verbose: true,
+    dry: false,
+    exclude: [],
+};
+
 module.exports = {
     context: __dirname,
     entry: {
@@ -18,7 +31,7 @@ module.exports = {
     },
     output: {
         path: __dirname + '/dist',
-        filename: '[name].js',
+        filename: fileNamePrefix + '[name].js',
         publicPath: '/dist/',
     },
     devServer: {
@@ -100,11 +113,22 @@ module.exports = {
             paths: glob.sync(__dirname + '/*.html'),
             minimize: true,
         }),
+        function() {
+            this.plugin("done", function(status) {
+                require("fs").writeFileSync(
+                    __dirname + "/dist/manifest.json",
+                    JSON.stringify(status.toJson().assetsByChunkName)
+                );
+            });
+        }
     ],
 }
 
 if (isProduction) {
     module.exports.plugins.push(
         new webpack.optimize.UglifyJsPlugin({sourceMap: true})
+    );
+    module.exports.plugins.push(
+        new CleanWebpackPlugin(pathsToClean, cleanOptions)
     );
 }
