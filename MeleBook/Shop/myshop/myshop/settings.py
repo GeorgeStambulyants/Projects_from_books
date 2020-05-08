@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'payment.apps.PaymentConfig',
     'coupons.apps.CouponsConfig',
 
+    'rosetta',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
