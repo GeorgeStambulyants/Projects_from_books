@@ -1,5 +1,5 @@
 from django import forms
-from djangio.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 
 PRODUCT_QUANTITY_CHOICES = [(i, str(i)) for i in range(1, 21)]
