@@ -1,4 +1,7 @@
+require('dotenv').config();
 const webpack = require('webpack');
+
+const isProduction = (process.env.NODE_ENV === 'production');
 
 module.exports = {
     context: __dirname,
@@ -78,5 +81,9 @@ module.exports = {
             devtool: 'source-map',
         }),
         new webpack.HotModuleReplacementPlugin(),
+        new webpack.DefinePlugin({
+            ENVIRONMENT: JSON.stringify(process.env.NODE_ENV),
+            CONSTANT_VALUE: JSON.stringify(process.env.CONSTANT_VALUE),
+        }),
     ],
 }
