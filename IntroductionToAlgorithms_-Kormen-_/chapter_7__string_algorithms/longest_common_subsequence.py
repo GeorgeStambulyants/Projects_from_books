@@ -51,8 +51,6 @@ def assemble_LCS(X, Y, l, i, j):
         l - returned array from compute_LCS_table
         returns the longest common subsequence in X[i] and X[j]
     '''
-    print(l)
-    print(i, j)
     if l[i][j] == 0:
         return ''
 
