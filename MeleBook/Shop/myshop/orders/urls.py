@@ -1,4 +1,5 @@
 from django.urls import path
+from django.utils.translation import gettext_lazy as _
 
 from . import views
 
@@ -6,7 +7,7 @@ from . import views
 app_name = 'orders'
 urlpatterns = [
     path(
-        'create/',
+        _('create/'),
         views.order_create,
         name='order_create'
     ),
@@ -19,5 +20,5 @@ urlpatterns = [
         'admin/order/<int:order_id>/pdf/',
         views.admin_order_pdf,
         name='admin_order_pdf'
-    )
+    ),
 ]
