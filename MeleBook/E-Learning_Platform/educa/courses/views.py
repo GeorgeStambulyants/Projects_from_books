@@ -11,6 +11,8 @@ from django.views.generic.base import TemplateResponseMixin, View
 from django.forms.models import modelform_factory
 from django.apps import apps
 
+from braces.views import CsrfExemptMixin, JSONRequestResponseMixin
+
 from .models import Course, Content, Module
 from .forms import ModuleFormSet
 
@@ -168,3 +170,25 @@ class CourseUpdateView(OwnerCourseEditMixin, UpdateView):
 class CourseDeleteView(OwnerCourseMixin, DeleteView):
     template_name = 'courses/manage/course/delete.html'
     permission_required = 'courses.delete_course'
+
+
+class ModuleOrderView(CsrfExemptMixin, JSONRequestResponseMixin, View):
+    
+    def post(self, request):
+        for id, order in self.request_json.items():
+            Module.objects.filter(
+                id=id,
+                course__owner=request.user
+            ).update(order=order)
+        return self.render_json_response({'saved': 'OK'})
+
+
+class ContentOrderView(CsrfExemptMixin, JSONRequestResponseMixin, View):
+    
+    def post(self, request):
+        for id, order in self.request_json.items():
+            Content.objects.filter(
+                id=id,
+                module__course__owner=request.user
+            ).update(order=order)
+        return self.render_json_response({'saved': 'OK'})
