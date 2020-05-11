@@ -5,19 +5,6 @@
 #
 
 
-class str_ind_from_1(str):
-    '''
-        indexs in the string begin with 1.
-        Need this because otherwise algorithm brokes
-        Cannot think of a better solution yet
-    '''
-    def __init__(self, *args, **kwargs):
-        str.__init__(*args, **kwargs)
-
-    def __getitem__(self, i):
-        return super().__getitem__(i - 1)
-
-
 def compute_LCS_table(X, Y):
     '''
         X, Y - two strings with respective lengths m and n
@@ -37,7 +24,7 @@ def compute_LCS_table(X, Y):
 
     for i in range(1, m + 1):
         for j in range(1, n + 1):
-            if X[i] == Y[j]:
+            if X[i - 1] == Y[j - 1]:
                 l[i][j] = l[i - 1][j - 1] + 1
             else:
                 l[i][j] = max(l[i][j - 1], l[i - 1][j])
@@ -66,8 +53,8 @@ def assemble_LCS(X, Y, l, i, j):
 
 if __name__ == '__main__':
     print('TESTS:\n')
-    X = str_ind_from_1('CATCGA')
-    Y = str_ind_from_1('GTACCGTCA')
+    X = 'CATCGA'
+    Y = 'GTACCGTCA'
     l = compute_LCS_table(X, Y)
 
     print('Testing compute_LCS_table...\n')
