@@ -28,7 +28,6 @@ def compute_LCS_table(X, Y):
                 l[i][j] = l[i - 1][j - 1] + 1
             else:
                 l[i][j] = max(l[i][j - 1], l[i - 1][j])
-    print(f'\n\nl: {l}\n\n')
     return l
 
 
@@ -41,13 +40,13 @@ def assemble_LCS(X, Y, l, i, j):
     if l[i][j] == 0:
         return ''
 
-    if X[i] == Y[j]:
-        return assemble_LCS(X, Y, l, i-1, j-1) + X[i]  # or Y[j]
+    if X[i - 1] == Y[j - 1]:
+        return assemble_LCS(X, Y, l, i-1, j-1) + X[i - 1]  # or Y[j]
 
     if l[i][j - 1] > l[i - 1][j]:
         return assemble_LCS(X, Y, l, i, j-1)
 
-    if l[i][j - 1] < l[i - 1][j]:
+    if l[i][j - 1] <= l[i - 1][j]:
         return assemble_LCS(X, Y, l, i-1, j)
 
 
@@ -98,30 +97,30 @@ if __name__ == '__main__':
     print('Testing assemble_LCS')
 
     print('\ntestcase#1')
-    if assemble_LCS(X, Y, l, 5, 8) == 'ATC':
+    if assemble_LCS(X, Y, l, 5, 8) in ['ACG', 'ATC', 'CTC']:
         print('OK')
     else:
-        raise AssertionError(f'{assemble_LCS(X, Y, l, 5, 8)} != ATC')
+        raise AssertionError(f'{assemble_LCS(X, Y, l, 5, 8)} not in ["ACG", "ATC", "CTC"]')
 
-    print('\ntestcase#2')
-    if assemble_LCS(X, Y, l, 6, 9) == 'CATC':
+    print('testcase#2')
+    if assemble_LCS(X, Y, l, 6, 9) in ['CATC', 'CTCA']:
         print('OK')
     else:
-        raise AssertionError(f'{assemble_LCS(X, Y, l, 6, 9)} != CATC')
+        raise AssertionError(f'{assemble_LCS(X, Y, l, 6, 9)} not in ["CATC", "CTCA"]')
 
-    print('\ntestcase#3')
+    print('testcase#3')
     if assemble_LCS(X, Y, l, 6, 0) == '':
         print('OK')
     else:
         raise AssertionError(f'{assemble_LCS(X, Y, l, 6, 0)} != ""')
 
-    print('\ntestcase#4')
+    print('testcase#4')
     if assemble_LCS(X, Y, l, 0, 5) == '':
         print('OK')
     else:
         raise AssertionError(f'{assemble_LCS(X, Y, l, 0, 5)} != ""')
 
-    print('\ntestcase#5')
+    print('testcase#5')
     if assemble_LCS(X, Y, l, 0, 0) == '':
         print('OK')
     else:
