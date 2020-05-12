@@ -9,7 +9,10 @@ from rest_framework import viewsets
 from rest_framework.decorators import action
 
 from ..models import Subject, Course
-from .serializers import SubjectSerializer, CourseSerializer
+from .serializers import (
+    SubjectSerializer, CourseSerializer, CourseWithContentsSerialializer,
+)
+from .permissions import IsEnrolled
 
 
 class CourseViewSet(viewsets.ReadOnlyModelViewSet):
@@ -26,6 +29,15 @@ class CourseViewSet(viewsets.ReadOnlyModelViewSet):
         course = self.get_object()
         course.students.add(request.user)
         return Response({'enrolled': True})
+
+    @action(
+        detail=True,
+        methods=['get'],
+        authentication_classes=[BasicAuthentication],
+        permission_classes=[IsAuthenticated, IsEnrolled]
+    )
+    def contents(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
 
 
 class SubjectListView(generics.ListAPIView):
