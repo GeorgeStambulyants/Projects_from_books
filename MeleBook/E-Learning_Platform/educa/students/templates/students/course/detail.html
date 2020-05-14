@@ -38,4 +38,10 @@
       {% endfor %}
     {% endcache %}
   </div>
+
+  <h3>
+    <a href="{% url 'chat:course_chat_room' object.id %}">
+      Course chat room
+    </a>
+  </h3>
 {% endblock content %}
