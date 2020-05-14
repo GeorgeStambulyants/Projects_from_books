@@ -37,7 +37,18 @@
   $submit.click(function() {
     var message = $input.val();
     if (message) {
-      chatSocket.send(JSON.stringify({'message': m}))
+      chatSocket.send(JSON.stringify({'message': message}));
+
+      $input.val('');
+
+      $input.focus();
     }
-  })
+  });
+
+  $input.focus();
+  $input.keyup(function(e) {
+    if(e.which === 13) {
+      $submit.click();
+    }
+  });
 {% endblock domready %}
