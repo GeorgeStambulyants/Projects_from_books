@@ -23,7 +23,7 @@
     var message = data.message;
 
     var dateOptions = {hour: 'numeric', minute: 'numeric', hour12: true}
-    var datetime = new Data(data['datetime']).toLocalString('en', dateOptions);
+    var datetime = new Date(data['datetime']).toLocaleString('en', dateOptions);
 
     var isMe = data.user === '{{ request.user }}';
     var source = isMe ? 'me' : 'other';
@@ -31,14 +31,14 @@
 
     var $chat = $('#chat');
     $chat.append(
-      '<div class="message" ' + source + '">"' + '<strong>' + name + '</strong> ' +
+      '<div class="message ' + source + '">' + '<strong>' + name + '</strong> ' +
         '<span class="date">' + datetime + '</span><br>' + message + '</div>'
       );
     $chat.scrollTop($chat[0].scrollHeight);
   };
 
   chatSocket.onclose = function(e) {
-    console.errors('Chat socket closed unexpectedly');
+    console.error('Chat socket closed unexpectedly');
   };
 
   var $input = $('#chat-message-input');
