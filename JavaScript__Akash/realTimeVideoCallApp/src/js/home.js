@@ -26,6 +26,36 @@ class Home {
         
         this.$remotes = document.querySelector('video-area');
         this.$localVideo = document.querySelector('#localVideo');
+        this.registerClicks();
+    }
+
+    registerClicks() {
+        this.$createRoomButton.onclick = () => {
+            this.roomName = this.$roomNameInput.value.toLowerCase().replace(
+                /\s/g, '-'
+            ).replace(/[^A-Za-z0-9_\-]/g, '');
+
+            if (this.roomName) {
+                webrtc.createRoom(this.roomName, (err, name) => {
+                    if (!err) {
+                        const newUrl = location.pathname + '?' + name;
+                        history.replaceState({}, '', newUrl);
+                        this.roomName = name;
+                        this.roomCreated();
+                    } else {
+                        // unable to create room
+                        console.error(err);
+                    }
+                });
+            }
+        }
+    }
+
+    roomCreated() {
+        this.$infoSection.classList.remove('hidden');
+        this.$createRoomSection.classList.add('hidden');
+        this.$roomName.textContent = `Room Name: ${this.roomName}`;
+        this.$roomUrl.textContent = window.location.href;
     }
 }
 
