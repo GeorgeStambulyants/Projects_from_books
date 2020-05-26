@@ -50,7 +50,7 @@ class TestSortingAlgorithms(unittest.TestCase):
     
     def test_merge_sort(self):
         for array in self.arrays:
-            merge_sort(array, 0, len(array))
+            merge_sort(array)
 
         for i in range(len(self.arrays)):
             self.assertEqual(
