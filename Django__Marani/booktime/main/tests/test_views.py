@@ -78,7 +78,7 @@ class TestPage(TestCase):
         self.assertContains(response, 'BookTime')
 
         product_list = (
-            models.Product.objects.active().filter(tags__slug='opensource').\
+            models.Product.objects.active().filter(tags__slug='opensource').
             order_by('name')
         )
         self.assertEqual(
@@ -96,7 +96,7 @@ class TestPage(TestCase):
         )
     
     def test_user_signup_page_submission_works(self):
-        post_data= {
+        post_data = {
             'email': 'user@domain.com',
             'password1': 'abcabcabc',
             'password2': 'abcabcabc',
@@ -204,7 +204,7 @@ class TestPage(TestCase):
             1,
         )
 
-        response = self.client.get(
+        self.client.get(
             reverse('add_to_basket'), {'product_id': w.id}
         )
 
@@ -233,10 +233,10 @@ class TestPage(TestCase):
         models.BasketLine.objects.create(
             basket=basket, product=cb, quantity=2
         )
-        response = self.client.get(
+        self.client.get(
             reverse('add_to_basket'), {'product_id': w.id}
         )
-        response = self.client.post(
+        self.client.post(
             reverse('login'),
             {'email': 'user1@a.com', 'password': 'frfergw45'}
         )

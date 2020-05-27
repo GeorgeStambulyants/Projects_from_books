@@ -257,7 +257,7 @@ class OrderLine(models.Model):
         (NEW, 'New'),
         (PROCESSING, 'Processing'),
         (SENT, 'Sent'),
-        (CANCELLED,'Cancelled'),
+        (CANCELLED, 'Cancelled'),
     )
     order = models.ForeignKey(
         Order, on_delete=models.CASCADE, related_name='lines'

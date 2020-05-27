@@ -48,7 +48,7 @@ class ProductListView(ListView):
                 tags=self.tag
             )
         else:
-            products=models.Product.objects.active()
+            products = models.Product.objects.active()
         
         return products.order_by('name')
 

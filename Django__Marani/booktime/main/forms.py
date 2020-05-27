@@ -111,4 +111,3 @@ class AddressSelectionForm(forms.Form):
         queryset = models.Address.objects.filter(user=user)
         self.fields['billing_address'].queryset = queryset
         self.fields['shipping_address'].queryset = queryset
-
