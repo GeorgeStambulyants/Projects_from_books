@@ -38,12 +38,14 @@ class ProductImage(models.Model):
     )
     image = models.ImageField(upload_to='product-images')
     thumbnail = models.ImageField(
-        upload_to='product-thimbnail', null=True
+        upload_to='product-thumbnail', null=True
     )
+
+    objects = models.Manager()
 
     def __str__(self):
         return f'Image for {self.product.name}'
-    
+
 
 class ProductTagManager(models.Manager):
 
