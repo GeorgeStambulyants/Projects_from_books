@@ -15,9 +15,7 @@ class TestSignal(TestCase):
         )
         product.save()
 
-        with open(
-            'main/fixtures/the-cathedral-the-bazaar.jpg', 'rb'
-        ) as f:
+        with open('main/fixtures/the-cathedral-the-bazaar.jpg', 'rb') as f:
             image = models.ProductImage(
                 product=product,
                 image=ImageFile(f, name='tctb.jpg'),
