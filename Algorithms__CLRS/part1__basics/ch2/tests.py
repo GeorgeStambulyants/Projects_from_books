@@ -3,6 +3,7 @@ import random
 
 from insertion_sort import insertion_sort
 from merge_sort import merge_sort
+from selection_sort import selection_sort
 
 
 class TestSortingAlgorithms(unittest.TestCase):
@@ -38,24 +39,29 @@ class TestSortingAlgorithms(unittest.TestCase):
             self.sorted_array_4, self.sorted_array_5, self.sorted_array_6,
             self.sorted_array_7,
         ]
-    
-    def test_insertion_sort(self):
-        for array in self.arrays:
-            insertion_sort(array)
-        
-        for i in range(len(self.arrays)):
-            self.assertEqual(
-                self.arrays[i], self.sorted_arrays[i],
-            )
-    
-    def test_merge_sort(self):
-        for array in self.arrays:
-            merge_sort(array)
 
+    def sort_arrays(self, sorting_func):
+        for array in self.arrays:
+            sorting_func(array)
+
+    def check_sorting(self):
         for i in range(len(self.arrays)):
             self.assertEqual(
                 self.arrays[i], self.sorted_arrays[i],
             )
+
+    def test_insertion_sort(self):
+        self.sort_arrays(insertion_sort)
+        self.check_sorting()
+        
+    def test_merge_sort(self):
+        self.sort_arrays(merge_sort)
+        self.check_sorting()
+
+    def test_selection_sort(self):
+        self.sort_arrays(selection_sort)
+        self.check_sorting()
+
 
 if __name__ == "__main__":
     unittest.main()
