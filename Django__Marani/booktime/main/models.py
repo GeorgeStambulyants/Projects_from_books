@@ -30,7 +30,7 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
-    
+
 
 class ProductImage(models.Model):
     product = models.ForeignKey(
@@ -136,7 +136,7 @@ class Address(models.Model):
                 self.country,
             ]
         )
-    
+
 
 class Basket(models.Model):
     OPEN = 10

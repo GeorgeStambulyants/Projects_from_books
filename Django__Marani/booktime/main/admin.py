@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.utils.html import format_html
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 
-from .import models
+from . import models
 
 
 class ProductAdmin(admin.ModelAdmin):
@@ -13,6 +13,7 @@ class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
     autocomplete_fields = ('tags',)
 
+
 admin.site.register(models.Product, ProductAdmin)
 
 
@@ -21,6 +22,7 @@ class ProductTagAdmin(admin.ModelAdmin):
     list_filter = ('active',)
     search_fields = ('name',)
     prepopulated_fields = {'slug': ('name',)}
+
 
 admin.site.register(models.ProductTag, ProductTagAdmin)
 
@@ -38,8 +40,10 @@ class ProductImageAdmin(admin.ModelAdmin):
         return '-'
     
     thumbnail_tag.short_description = 'Thumbnail'
+
     def product_name(self, obj):
         return obj.product.name
+
 
 admin.site.register(models.ProductImage, ProductImageAdmin)
 
