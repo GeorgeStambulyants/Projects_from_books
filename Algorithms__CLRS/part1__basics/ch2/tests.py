@@ -4,6 +4,7 @@ import random
 from insertion_sort import insertion_sort
 from merge_sort import merge_sort
 from selection_sort import selection_sort
+from exercises.insertion_sort_reversed__ex2_1_2 import insertion_sort_reversed
 
 
 class TestSortingAlgorithms(unittest.TestCase):
@@ -60,6 +61,14 @@ class TestSortingAlgorithms(unittest.TestCase):
 
     def test_selection_sort(self):
         self.sort_arrays(selection_sort)
+        self.check_sorting()
+    
+    def test_insertion_sort_reversed(self):
+        self.sort_arrays(insertion_sort_reversed)
+        
+        for array in self.sorted_arrays:
+            array.reverse()
+
         self.check_sorting()
 
 
