@@ -5,6 +5,7 @@ from insertion_sort import insertion_sort
 from merge_sort import merge_sort
 from selection_sort import selection_sort
 from exercises.insertion_sort_reversed__ex2_1_2 import insertion_sort_reversed
+from bubble_sort import bubble_sort
 
 
 class TestSortingAlgorithms(unittest.TestCase):
@@ -69,6 +70,10 @@ class TestSortingAlgorithms(unittest.TestCase):
         for array in self.sorted_arrays:
             array.reverse()
 
+        self.check_sorting()
+    
+    def test_bubble_sort(self):
+        self.sort_arrays(bubble_sort)
         self.check_sorting()
 
 
