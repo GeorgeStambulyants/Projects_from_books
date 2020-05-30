@@ -124,7 +124,9 @@ class Address(models.Model):
     country = models.CharField(
         max_length=3, choices=SUPPORTED_COUNTRIES
         )
-    
+
+    objects = models.Manager()
+
     def __str__(self):
         return ', '.join(
             [
@@ -150,6 +152,8 @@ class Basket(models.Model):
         User, on_delete=models.CASCADE, blank=True, null=True
     )
     status = models.IntegerField(choices=STATUSES, default=OPEN)
+
+    objects = models.Manager()
 
     def is_empty(self):
         return self.basketline_set.all().count() == 0
@@ -214,6 +218,8 @@ class BasketLine(models.Model):
         default=1, validators=[MinValueValidator(1)]
     )
 
+    objects = models.Manager()
+
 
 class Order(models.Model):
     NEW = 10
@@ -249,6 +255,8 @@ class Order(models.Model):
     date_updated = models.DateTimeField(auto_now=True)
     date_added = models.DateTimeField(auto_now_add=True)
 
+    objects = models.Manager()
+
 
 class OrderLine(models.Model):
     NEW = 10
@@ -268,3 +276,5 @@ class OrderLine(models.Model):
         Product, on_delete=models.PROTECT
     )
     status = models.IntegerField(choices=STATUSES, default=NEW)
+
+    objects = models.Manager()
