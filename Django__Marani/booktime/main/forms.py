@@ -65,7 +65,7 @@ class AuthenticationForm(forms.Form):
 
     def __init__(self, request=None, *args, **kwargs):
         self.request = request
-        self.uesr = None
+        self.user = None
         super().__init__(*args, **kwargs)
     
     def clean(self):
