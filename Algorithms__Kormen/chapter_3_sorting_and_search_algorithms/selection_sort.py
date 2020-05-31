@@ -3,8 +3,7 @@
 # Time: O(n^2)
 
 
-# p, r - don't need them here. They are for quick sort.
-def selection_sort(array, p=None, r=None):
+def selection_sort(array):
     array_length = len(array)
 
     for i in range(0, array_length - 1):

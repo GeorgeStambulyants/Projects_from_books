@@ -3,8 +3,7 @@
 # Time: O(n^2)
 
 
-# p, r - don't need them here. They are for quick sort.
-def insertion_sort(array, p=None, r=None):
+def insertion_sort(array):
     array_length = len(array)
 
     for i in range(1, array_length):
