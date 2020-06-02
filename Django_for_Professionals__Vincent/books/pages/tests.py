@@ -45,7 +45,7 @@ class AboutPageTests(SimpleTestCase):
         self.assertTemplateUsed(self.response, 'about.html')
 
     def test_aboutpage_contains_correct_html(self):
-        self.assertContains(self.response, 'About Page')
+        self.assertContains(self.response, 'About page')
 
     def test_aboutpage_does_not_contain_incorrect_html(self):
         self.assertNotContains(
