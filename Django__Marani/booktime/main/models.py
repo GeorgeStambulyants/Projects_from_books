@@ -6,6 +6,8 @@ from django.core.validators import MinValueValidator
 
 import logging
 
+from . import exceptions
+
 
 logger = logging.getLogger(__name__)
 
