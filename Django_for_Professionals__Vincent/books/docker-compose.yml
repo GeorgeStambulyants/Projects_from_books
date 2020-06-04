@@ -6,7 +6,7 @@ services:
     command: python /code/manage.py runserver 0.0.0.0:8000
     environment: 
       - SECRET_KEY=${SECRET_KEY}
-      - DEBUG={$DEBUG}
+      - DEBUG=${DEBUG}
       - STRIPE_TEST_PUBLISHABLE_KEY=${STRIPE_TEST_PUBLISHABLE_KEY}
       - STRIP_TEST_SECRET_KEY=${STRIP_TEST_SECRET_KEY}
     volumes:
