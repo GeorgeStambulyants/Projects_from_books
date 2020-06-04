@@ -5,8 +5,10 @@ services:
     build: .
     command: python /code/manage.py runserver 0.0.0.0:8000
     environment: 
-      - SECRET_KEY=ve#n72mze83t^1@e@1+*q9cey+f8%57y-tvm$$oo4lv_x#v)m@6
-      - DEBUG=1
+      - SECRET_KEY=${SECRET_KEY}
+      - DEBUG=${DEBUG}
+      - STRIPE_TEST_PUBLISHABLE_KEY=${STRIPE_TEST_PUBLISHABLE_KEY}
+      - STRIP_TEST_SECRET_KEY=${STRIP_TEST_SECRET_KEY}
     volumes:
       - .:/code
     ports:
