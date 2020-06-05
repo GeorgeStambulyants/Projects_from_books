@@ -9,6 +9,7 @@ services:
       - DEBUG=${DEBUG}
       - STRIPE_TEST_PUBLISHABLE_KEY=${STRIPE_TEST_PUBLISHABLE_KEY}
       - STRIPE_TEST_SECRET_KEY=${STRIPE_TEST_SECRET_KEY}
+      - ENVIRONMENT=${ENVIRONMENT}
     volumes:
       - .:/code
     ports:
