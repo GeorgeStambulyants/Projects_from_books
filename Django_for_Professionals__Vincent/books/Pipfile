@@ -15,6 +15,7 @@ django-allauth = "*"
 pillow = "*"
 stripe = "*"
 django-debug-toolbar = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.7"
