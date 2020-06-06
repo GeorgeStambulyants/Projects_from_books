@@ -16,6 +16,7 @@ pillow = "*"
 stripe = "*"
 django-debug-toolbar = "*"
 whitenoise = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"
