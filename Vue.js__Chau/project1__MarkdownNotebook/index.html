@@ -4,7 +4,7 @@
   <title>Notebook</title>
   <!-- Icons & Stylesheets -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
 
@@ -13,8 +13,15 @@
 
     <!-- Main pane -->
     <section class="main">
-
+      <textarea v-model="content"></textarea>
     </section>
+
+    <!-- Preview pane -->
+    <aside class="preview">
+      {{ notePreview }}
+    </aside>
+
+  </div>
 
   <!-- Include the library in the page -->
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
