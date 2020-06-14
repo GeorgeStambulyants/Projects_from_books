@@ -7,6 +7,10 @@ var app = new Vue({
         }
     },
 
+    created() {
+        this.content = localStorage.getItem('content') || 'You can write in **markdown**';
+    },
+
     methods: {
         saveNote() {
             console.log('saving note:', this.content);
