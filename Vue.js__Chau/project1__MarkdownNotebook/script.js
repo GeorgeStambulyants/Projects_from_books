@@ -7,9 +7,24 @@ var app = new Vue({
         }
     },
 
+    methods: {
+        saveNote() {
+            console.log('saving note:', this.content);
+            localStorage.setItem('content', this.content);
+            this.reportOperation('saving');
+        },
+
+        reportOperation(opName) {
+            console.log('The', opName, 'operation was completed!')
+        }
+    },
+
     computed: {
         notePreview() {
             return marked(this.content);
         },
+    },
+    watch: {
+        content: 'saveNote',
     },
 })
