@@ -9,10 +9,6 @@ var app = new Vue({
     },
 
     methods: {
-        reportOperation(opName) {
-            console.log('The', opName, 'operation was completed!')
-        },
-
         addNote() {
             const time = Date.now();
             const note = {
