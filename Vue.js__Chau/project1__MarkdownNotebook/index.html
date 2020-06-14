@@ -11,6 +11,20 @@
   <!-- Notebook app -->
   <div id="notebook">
 
+    <!-- Sidebar -->
+    <aside class="side-bar">
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <button @click="addNote" :title="addButtonTitle">
+          <i class="material-icons">add</i>Add note
+        </button>
+      </div>
+      <div class="notes">
+        <div class="note" v-for="note of notes">{{ note.title }}</div>
+      </div>
+
+    </aside>
+
     <!-- Main pane -->
     <section class="main">
       <textarea v-model="content"></textarea>
