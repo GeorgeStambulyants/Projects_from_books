@@ -3,22 +3,12 @@ var app = new Vue({
 
     data() {
         return {
-            content: 'This is note',
             notes: [],
+            selectedId: null,
         }
     },
 
-    created() {
-        this.content = localStorage.getItem('content') || 'You can write in **markdown**';
-    },
-
     methods: {
-        saveNote() {
-            console.log('saving note:', this.content);
-            localStorage.setItem('content', this.content);
-            this.reportOperation('saving');
-        },
-
         reportOperation(opName) {
             console.log('The', opName, 'operation was completed!')
         },
@@ -34,18 +24,23 @@ var app = new Vue({
             };
             this.notes.push(note);
         },
+
+        selectNote(note) {
+            this.selectedId = note.id;
+        },
     },
 
     computed: {
         notePreview() {
-            return marked(this.content);
+            return this.selectedNote ? marked(this.selectedNote.content) : '';
         },
 
         addButtonTitle() {
             return this.notes.length + ' note(s) already'
         },
-    },
-    watch: {
-        content: 'saveNote',
+
+        selectedNote() {
+            return this.notes.find(note => note.id === this.selectedId) || '';
+        }
     },
 })

@@ -20,14 +20,16 @@
         </button>
       </div>
       <div class="notes">
-        <div class="note" v-for="note of notes">{{ note.title }}</div>
+        <div class="note" v-for="note of notes" @click="selectNote(note)">
+          {{ note.title }}
+        </div>
       </div>
 
     </aside>
 
     <!-- Main pane -->
     <section class="main">
-      <textarea v-model="content"></textarea>
+      <textarea v-model="selectedNote.content"></textarea>
     </section>
 
     <!-- Preview pane -->
