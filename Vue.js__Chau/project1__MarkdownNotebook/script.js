@@ -3,8 +3,8 @@ var app = new Vue({
 
     data() {
         return {
-            notes: [],
-            selectedId: null,
+            notes: JSON.parse(localStorage.getItem('notes')) || [],
+            selectedId: localStorage.getItem('selected-id') || null,
         }
     },
 
@@ -14,7 +14,7 @@ var app = new Vue({
             const note = {
                 id: String(time),
                 title: 'New note ' + (this.notes.length + 1),
-                content: '**Hi!** This note book is using [markdown]<url to github repo here> for formatting!',
+                content: '**Hi!** This note book is using [markdown](https://github.com/adam-p/mardown-here/wiki/Markdown-Cheatsheet) for formatting!',
                 created: time,
                 favorite: false,
             };
@@ -23,6 +23,11 @@ var app = new Vue({
 
         selectNote(note) {
             this.selectedId = note.id;
+        },
+
+        saveNotes() {
+            localStorage.setItem('notes', JSON.stringify(this.notes));
+            console.log('Notes saved!', new Date());
         },
     },
 
@@ -39,4 +44,17 @@ var app = new Vue({
             return this.notes.find(note => note.id === this.selectedId) || '';
         }
     },
+
+    watch: {
+        notes: {
+            handler: 'saveNotes',
+            deep: true,
+        },
+
+        selectedId: {
+            handler(val) {
+                localStorage.setItem('selected-id', val);
+            },
+        },
+    }
 })
