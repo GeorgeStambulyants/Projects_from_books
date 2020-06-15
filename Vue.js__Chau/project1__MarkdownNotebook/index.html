@@ -47,6 +47,28 @@
         </div>
 
         <textarea v-model="selectedNote.content"></textarea>
+
+        <div class="toolbar status-bar">
+          <span class="data">
+            <span class="label">Created</span>
+            <span class="value">{{ selectedNote.created | date }}</span>
+          </span>
+
+          <span class="lines">
+            <span class="label">Lines</span>
+            <span class="value">{{ linesCount }}</span>
+          </span>
+
+          <span class="words">
+            <span class="label">Words</span>
+            <span class="value">{{ wordsCount }}</span>
+          </span>
+
+          <span class="characters">
+            <span class="label">Characters</span>
+            <span class="value">{{ charactersCount }}</span>
+          </span>
+        </div>
       </section>
 
       <!-- Preview pane -->
@@ -59,6 +81,7 @@
   <!-- Include the library in the page -->
   <script src="libs/vue.js"></script>
   <script src="libs/marked.js"></script>
+  <script src="libs/moment.js"></script>
 
   <!-- Some JavaScript -->
   <script src="script.js"></script>
