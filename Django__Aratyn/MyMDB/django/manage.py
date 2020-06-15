@@ -5,7 +5,13 @@ import sys
 
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
+    environment = os.getenv('ENVIRONMENT', 'development')
+    if environment == 'development':
+        settings = 'config.dev_settings'
+    else:
+        settings = 'config.production_settings'
+
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings)
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
