@@ -3,7 +3,9 @@ new Vue({
     el: '#app',
     data: state,
 
-    template: `<div id="#app">{{ worldRatio }}</div>`,
+    template: `<div id="#app">
+        <top-bar :turn="turn"   :current-player-index="currentPlayerIndex"                        :players="players"/>
+    </div>`,
 })
 
 window.addEventListener('resize', () => {
