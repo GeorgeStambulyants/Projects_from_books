@@ -1,8 +1,9 @@
 from django.test import TestCase
 from django.test.client import RequestFactory
 from django.urls.base import reverse
-from core.models import Movie
-from core.views import MovieList
+
+from . models import Movie
+from . views import MovieList
 
 
 class MovieListPaginationTestCase(TestCase):
@@ -21,11 +22,13 @@ class MovieListPaginationTestCase(TestCase):
                                  year=1990 + n,
                                  runtime=100)
 
-    def testFirstPage(self):
+    def test_first_page(self):
         movie_list_path = reverse('core:MovieList')
         request = RequestFactory().get(path=movie_list_path)
         response = MovieList.as_view()(request)
         self.assertEqual(200, response.status_code)
         self.assertTrue(response.context_data['is_paginated'])
-        self.assertInHTML(self.ACTIVE_PAGINATION_HTML.format(
-            movie_list_path, 1, 'First'), response.rendered_content)
+        self.assertInHTML(
+            self.ACTIVE_PAGINATION_HTML.format(movie_list_path, 1, 'First'),
+            response.rendered_content
+        )

@@ -1,25 +1,24 @@
 import django
-from django.shortcuts import redirect
-from core.models import Movie, Person, Vote
-from django.views.generic import (
-    ListView, DetailView, CreateView, UpdateView,
-)
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.urls import reverse
-from core.forms import (
-    VoteForm, MovieImageForm,
-)
 from django.core.exceptions import PermissionDenied
-from core.mixins import CachePageVaryOnCookieMixin
 from django.core.cache import cache
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import redirect
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.urls import reverse
+
+from . mixins import CachePageVaryOnCookieMixin
+from . models import Movie, Person, Vote
+from . forms import VoteForm, MovieImageForm
 
 
 class PersonDetail(DetailView):
     queryset = Person.objects.all_with_prefetch_movies()
+    context_object_name = 'person'
 
 
 class MovieDetail(DetailView):
     queryset = (Movie.objects.all_with_related_persons_and_score())
+    context_object_name = 'movie'
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
@@ -48,8 +47,9 @@ class MovieDetail(DetailView):
 
 
 class MovieList(CachePageVaryOnCookieMixin, ListView):
-    paginate_by = 10
+    paginate_by = 5
     model = Movie
+    context_object_name = 'movie_list'
 
 
 class CreateVote(LoginRequiredMixin, CreateView):
@@ -120,16 +120,16 @@ class TopMovies(ListView):
     template_name = 'core/top_movies_list.html'
 
     def get_queryset(self):
-            limit = 10
-            key = 'top_movies_{}'.format(limit)
-            cached_qs = cache.get(key)
-            if cached_qs:
-                # Pickling QuerySet objects are not guaranteed to be compatible
-                # across Django versions, so the version should be checked
-                # before proceeding
-                same_django = cached_qs._django_version == django.get_version()
-                if same_django:
-                    return cached_qs
-            qs = Movie.objects.top_movies(limit=limit)
-            cache.set(key, qs)
-            return qs
+        limit = 10
+        key = 'top_movies_{}'.format(limit)
+        cached_qs = cache.get(key)
+        if cached_qs:
+            # Pickling QuerySet objects are not guaranteed to be compatible
+            # across Django versions, so the version should be checked
+            # before proceeding
+            same_django = cached_qs._django_version == django.get_version()
+            if same_django:
+                return cached_qs
+        qs = Movie.objects.top_movies(limit=limit)
+        cache.set(key, qs)
+        return qs

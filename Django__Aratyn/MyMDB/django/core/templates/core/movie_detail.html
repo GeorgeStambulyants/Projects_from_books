@@ -1,32 +1,32 @@
 {% extends 'base.html' %}
 
 {% block title %}
-  {{ object.title }} - {{ block.super }}
-{% endblock %}
+  {{ movie.title }} - {{ block.super }}
+{% endblock title %}
 
 {% block main %}
   <div class="col">
-    <h1>{{ object }}</h1>
+    <h1>{{ movie }}</h1>
     <p class="lead">
-      {{ object.plot }}
+      {{ movie.plot }}
     </p>
   </div>
 
   <ul class="movie-image list-inline">
-    {% for i in object.movieimage_set.all %}
+    {% for i in movie.movieimage_set.all %}
       <li class="list-inline-item">
         <img src="{{ i.image.url }}" alt="">
       </li>
     {% endfor %}
   </ul>
-  <p>Directed by {{ object.diretor }}</p>
-{% endblock %}
+  <p>Directed by {{ movie.director }}</p>
+{% endblock main %}
 
 {% block sidebar %}
   <div>
     This movie is rated:
       <span class="badge badge-primary">
-        {{ object.get_rating_display }}
+        {{ movie.get_rating_display }}
       </span>
   </div>
 
@@ -43,13 +43,13 @@
                   Upload
                 </button>
               </p>
-            </form>
+      </form>
     </div>
   {% endif %}
 
   <div>
     <h2>
-      Score: {{ object.score|default_if_none:"TBD" }}
+      Score: {{ movie.score|default_if_none:"TBD" }}
     </h2>
   </div>
 
@@ -66,4 +66,4 @@
       <p>Log in to vote for this movie</p>
     {% endif %}
   </div>
-{% endblock %}
+{% endblock sidebar %}

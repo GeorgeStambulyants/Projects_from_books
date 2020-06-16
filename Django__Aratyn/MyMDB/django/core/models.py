@@ -49,7 +49,7 @@ class Movie(models.Model):
     RATINGS = (
         (NOT_RATED, 'NR - Not Rated'),
         (RATED_G, 'G - General Audiences'),
-        (RATED_PG, 'PG - Parental Guidance ' 'Suggested'),
+        (RATED_PG, 'PG - Parental Guidance Suggested'),
         (RATED_R, 'R - Restricted'),
     )
 
@@ -59,16 +59,22 @@ class Movie(models.Model):
     rating = models.IntegerField(choices=RATINGS, default=NOT_RATED)
     runtime = models.PositiveIntegerField()
     website = models.URLField(blank=True)
-    director = models.ForeignKey(to='Person',
-                                 on_delete=models.SET_NULL,
-                                 related_name='directed',
-                                 null=True, blank=True)
-    writers = models.ManyToManyField(to='Person',
-                                     related_name='writing_credits',
-                                     blank=True)
-    actors = models.ManyToManyField(to='Person', through='Role',
-                                    related_name='acting_credits',
-                                    blank=True)
+    director = models.ForeignKey(
+        to='Person',
+        on_delete=models.SET_NULL,
+        related_name='directed',
+        null=True, blank=True
+    )
+    writers = models.ManyToManyField(
+        to='Person',
+        related_name='writing_credits',
+        blank=True
+    )
+    actors = models.ManyToManyField(
+        to='Person', through='Role',
+        related_name='acting_credits',
+        blank=True
+    )
 
     objects = MovieManager()
 
@@ -76,7 +82,7 @@ class Movie(models.Model):
         ordering = ('-year', 'title')
 
     def __str__(self):
-        return '{} ({})'.format(self.title, self.year)
+        return f'{self.title} ({self.year})'
 
 
 class Role(models.Model):
@@ -94,9 +100,11 @@ class Role(models.Model):
 class PersonManager(models.Manager):
     def all_with_prefetch_movies(self):
         qs = self.get_queryset()
-        return qs.prefetch_related('directed',
-                                   'writing_credits',
-                                   'role_set__movie')
+        return qs.prefetch_related(
+            'directed',
+            'writing_credits',
+            'role_set__movie'
+        )
 
 
 class Person(models.Model):
@@ -115,7 +123,7 @@ class Person(models.Model):
             return f'{self.last_name}, {self.first_name} \
                     ({self.born}-{self.died})'
 
-        return f'{self.last_name}, {self.first_name} {self.born}'
+        return f'{self.last_name}, {self.first_name} ({self.born})'
 
 
 class VoteManager(models.Manager):

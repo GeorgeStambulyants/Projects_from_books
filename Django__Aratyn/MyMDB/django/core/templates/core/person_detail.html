@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 
 {% block title %}
-  {{ object.first_name }}
-  {{ object.last_name }}
-{% endblock %}
+  {{ person.first_name }}
+  {{ person.last_name }}
+{% endblock title %}
 
 {% block main %}
-  <h1>{{ object }}</h1>
+  <h1>{{ person }}</h1>
   <h2>Actor</h2>
   <ul>
-    {% for role in object.role_set.all %}
+    {% for role in person.role_set.all %}
       <li>
         <a href="{% url 'core:MovieDetail' %} role.movie.id">
           {{ role.movie }}
@@ -20,7 +20,7 @@
   </ul>
   <h2>Writer</h2>
   <ul>
-    {% for movie in object.writing_credits.all %}
+    {% for movie in person.writing_credits.all %}
       <li>
         <a href="{% url 'core:MovieDetail' movie.id%}">
           {{ movie }}
@@ -30,7 +30,7 @@
   </ul>
   <h2>Director</h2>
   <ul>
-    {% for movie in objects.directed.all %}
+    {% for movie in person.directed.all %}
       <li>
         <a href="{% url 'core:MovieDetail' movie.id%}">
           {{ movie }}
@@ -38,4 +38,4 @@
       </li>
       {% endfor %}
   </ul>
-{% endblock %}
+{% endblock main %}
