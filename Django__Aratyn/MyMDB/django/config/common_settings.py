@@ -129,7 +129,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = 'user:login'
+LOGIN_REDIRECT_URL = 'core:MovieList'
+LOGOUT_REDIRECT_URL = 'core:MovieList'
 
 # To serve the uploaded files. Use only in development, not in production
 MEDIA_URL = '/uploaded/'
