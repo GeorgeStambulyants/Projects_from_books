@@ -1,7 +1,8 @@
 from django.db import models
 from django.db.models.aggregates import Sum
-from uuid import uuid4
 from django.conf import settings
+
+from uuid import uuid4
 
 
 def movie_directory_path_with_uuid(instance, filename):
@@ -14,8 +15,9 @@ class MovieImage(models.Model):
     )
     uploaded = models.DateTimeField(auto_now_add=True)
     movie = models.ForeignKey('Movie', on_delete=models.CASCADE)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL,
-                             on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE
+    )
 
 
 class MovieManager(models.Manager):

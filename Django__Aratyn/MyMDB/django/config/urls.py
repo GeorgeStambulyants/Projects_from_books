@@ -6,7 +6,7 @@ from django.urls import path, include
 
 handler404 = 'django.views.defaults.page_not_found'
 
-# Won't work is settings.DEBUG = False
+# Won't work if settings.DEBUG = False
 MEDIA_FILE_PATHS = static(
     settings.MEDIA_URL,
     document_root=settings.MEDIA_ROOT,

@@ -134,7 +134,7 @@ LOGOUT_REDIRECT_URL = 'core:MovieList'
 
 # To serve the uploaded files. Use only in development, not in production
 MEDIA_URL = '/uploaded/'
-# Path to the directory, where Django should save the code
+# Path to the directory, where Django should save the images
 MEDIA_ROOT = os.path.join(BASE_DIR, '../media_root')
 
 # CSRF token will not be sent in a cookie,

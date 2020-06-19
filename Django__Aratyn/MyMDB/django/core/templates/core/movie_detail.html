@@ -19,7 +19,7 @@
       </li>
     {% endfor %}
   </ul>
-  <p>Directed by {{ movie.director }}</p>
+  <p>Directed by {{ movie.director|default_if_none:"|Unknown|" }}</p>
 {% endblock main %}
 
 {% block sidebar %}
