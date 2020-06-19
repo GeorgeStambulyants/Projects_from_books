@@ -124,6 +124,7 @@ class MovieImageUpload(LoginRequiredMixin, CreateView):
 
 class TopMovies(ListView):
     template_name = 'core/top_movies_list.html'
+    context_object_name = 'top_movies_list'
 
     def get_queryset(self):
         limit = 10
