@@ -19,7 +19,9 @@
       </li>
     {% endfor %}
   </ul>
-  <p>Directed by {{ movie.director|default_if_none:"|Unknown|" }}</p>
+  {% if movie.director %}
+    <p>Directed by <a href="{% url 'core:person' movie.director.id %}">{{ movie.director }}</a></p>
+  {% endif %}
 {% endblock main %}
 
 {% block sidebar %}

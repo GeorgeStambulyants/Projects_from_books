@@ -35,4 +35,9 @@ urlpatterns = [
         views.MovieImageUpload.as_view(),
         name='MovieImageUpload'
     ),
+    path(
+        'person/<int:pk>/',
+        views.PersonDetail.as_view(),
+        name='person'
+    ),
 ]
