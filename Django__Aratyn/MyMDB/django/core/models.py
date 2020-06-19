@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth import settings
 from django.db.models.aggregates import Sum
 from uuid import uuid4
 from django.conf import settings
@@ -138,16 +137,21 @@ class Vote(models.Model):
     UP = 1
     DOWN = -1
     VALUE_CHOICES = (
-        (UP, '1'),
-        (DOWN, '0'),
+        (UP, 'Like'),
+        (DOWN, 'Dislike'),
     )
 
     value = models.SmallIntegerField(choices=VALUE_CHOICES)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL,
-                             on_delete=models.CASCADE,
-                             related_name='user_votes')
-    movie = models.ForeignKey(Movie, on_delete=models.CASCADE,
-                              related_name='vote')
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='user_votes'
+    )
+    movie = models.ForeignKey(
+        Movie,
+        on_delete=models.CASCADE,
+        related_name='vote'
+    )
     voted_on = models.DateTimeField(auto_now=True)
 
     objects = VoteManager()
