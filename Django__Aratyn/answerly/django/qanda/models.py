@@ -1,15 +1,20 @@
 from django.db import models
 from django.urls.base import reverse
 from django.conf import settings
-from qanda.service import elasticsearch
+
+from . service import elasticsearch
 
 
 class Question(models.Model):
     title = models.CharField(max_length=140)
     question = models.TextField()
-    user = models.ForeignKey(to=settings.AUTH_USER_MODEL,
-                             on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        to=settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE
+    )
     created = models.DateTimeField(auto_now_add=True)
+
+    objects = models.Manager()
 
     def __str__(self):
         return self.title
@@ -31,8 +36,7 @@ class Question(models.Model):
             'created': self.created,
         }
     
-    def save(self, force_insert=False, force_update=False, using=None, 
-            update_fields=None):
+    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         super().save(
             force_insert=force_insert,
             force_update=force_update,
@@ -44,12 +48,18 @@ class Question(models.Model):
 
 class Answer(models.Model):
     answer = models.TextField()
-    user = models.ForeignKey(to=settings.AUTH_USER_MODEL,
-                             on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        to=settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE
+    )
     created = models.DateTimeField(auto_now_add=True)
-    question = models.ForeignKey(to=Question,
-                                 on_delete=models.CASCADE)
+    question = models.ForeignKey(
+        to=Question,
+        on_delete=models.CASCADE
+    )
     accepted = models.BooleanField(default=False)
+
+    objects = models.Manager()
 
     class Meta:
         ordering = ('-created', )

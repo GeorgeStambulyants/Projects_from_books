@@ -1,27 +1,25 @@
-from django.contrib.auth.mixins import (
-    LoginRequiredMixin,
-)
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.utils import timezone
+from django.urls import reverse
 from django.views.generic import (
-    CreateView, DetailView, UpdateView, DayArchiveView, RedirectView,
+    CreateView,
+    DetailView,
+    UpdateView,
+    DayArchiveView,
+    RedirectView,
     TemplateView,
 )
 from django.http import (
-    HttpResponseBadRequest, HttpResponseRedirect,
+    HttpResponseBadRequest,
+    HttpResponseRedirect,
 )
-from qanda.forms import (
-    QuestionForm, AnswerForm, AnswerAcceptanceForm,
-)
-from qanda.models import (
-    Question, Answer,
-)
-from django.utils import (
-    timezone,
-)
-from django.urls import (
-    reverse,
-)
-from qanda.service.elasticsearch import (
-    search_for_questions,
+
+from . models import Question, Answer
+from . service.elasticsearch import search_for_questions
+from . forms import (
+    QuestionForm,
+    AnswerForm,
+    AnswerAcceptanceForm,
 )
 
 
@@ -38,8 +36,10 @@ class AskQuestionView(LoginRequiredMixin, CreateView):
             # save and redirect as usual
             return super().form_valid(form)
         elif action == 'PREVIEW':
-            preview = Question(question=form.cleaned_data['question'],
-                               title=form.cleaned_data['title'])
+            preview = Question(
+                question=form.cleaned_data['question'],
+                title=form.cleaned_data['title']
+            )
             ctx = self.get_context_data(preview=preview)
             return self.render_to_response(context=ctx)
 

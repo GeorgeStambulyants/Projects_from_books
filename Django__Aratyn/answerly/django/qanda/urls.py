@@ -1,8 +1,10 @@
 from django.urls.conf import path
-from qanda import views
+
+from . import views
 
 
 app_name = 'qanda'
+
 urlpatterns = [
     path(
         '',
@@ -34,7 +36,8 @@ urlpatterns = [
         views.DailyQuestionList.as_view(),
         name='daily_questions'
     ),
-    path('q/search', views.SearchView.as_view(),
-    name='question_search'
+    path(
+        'q/search', views.SearchView.as_view(),
+        name='question_search'
     ),
 ]

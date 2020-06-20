@@ -31,14 +31,18 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'user',
-    'qanda',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Local
+    'user',
+    'qanda',
+
+    # Third-party
     'markdownify',
     'crispy_forms',
 ]
@@ -133,9 +137,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-
-# markdownify's configs
-# this setting tells markdownify to HTML encode any other HTML tag
+# this setting tells markdownify to encode any other HTML tag
 MARKDOWNIFY_STRIP = False
 # this lets markdownify know which HTML tags to whitelist
 MARKDOWNIFY_WHITELIST_TAGS = [
