@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
-{% block title %}Question on {{ day }}{% endblock %}
+{% block title %}Question on {{ day }}{% endblock title %}
 
 {% block body %}
 	<div class="col-sm-12">
 		<h1>Highest Voted Questions of {{ day }}</h1>
 		<ul>
-			{% for question in object_list %}
+			{% for question in questions %}
 				<li>
 					{{ question.votes }}
 					<a href="{{ question.get_absolute_url }}">
@@ -35,4 +35,4 @@
 			{% endif %}
 		</div>
 	</div>
-{% endblock %}
+{% endblock body %}

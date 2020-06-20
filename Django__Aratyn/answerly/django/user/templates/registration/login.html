@@ -1,7 +1,8 @@
 {% extends "base.html" %}
+
 {% load crispy_forms_tags %}
 
-{% block title %}Login - {{ block.super }}{% endblock %}
+{% block title %}Login - {{ block.super }}{% endblock title %}
 
 {% block body %}
 	<h1>Login</h1>
@@ -10,4 +11,4 @@
 		{{ form|crispy }}
 		<button class="btn btn-primary" id="log_in" type="submit">Login</button>
 	</form>
-{% endblock %}
+{% endblock body %}

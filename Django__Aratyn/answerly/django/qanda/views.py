@@ -93,6 +93,7 @@ class CreateAnswerView(LoginRequiredMixin, CreateView):
         elif action == 'PREVIEW':
             ctx = self.get_context_data(preview=form.cleaned_data['answer'])
             return self.render_to_response(context=ctx)
+
         return HttpResponseBadRequest()
 
     def get_question(self):
@@ -108,7 +109,8 @@ class UpdateAnswerAcceptance(LoginRequiredMixin, UpdateView):
 
     def form_invalid(self, form):
         return HttpResponseRedirect(
-            redirect_to=self.object.question.get_absolute_url())
+            redirect_to=self.object.question.get_absolute_url()
+        )
 
 
 class DailyQuestionList(DayArchiveView):
@@ -116,6 +118,7 @@ class DailyQuestionList(DayArchiveView):
     date_field = 'created'
     month_format = '%m'
     allow_empty = True
+    context_object_name = 'questions'
 
 
 class TodaysQuestionList(RedirectView):

@@ -1,4 +1,5 @@
 {% load markdownify %}
+
 <h3>Answers</h3>
 	<ul class="list-unstyled answers">
 		{% for answer in question.answer_set.all %}
@@ -9,8 +10,8 @@
 					{% endif %}
 
 					{% if answer.accepted and reject_form %}
-						<form method="post" 
-						action="{% url 'qanda:update_answer_acceptance' pk=answer.id %}">
+						<form method="post"
+									action="{% url 'qanda:update_answer_acceptance' pk=answer.id %}">
 							{% csrf_token %}
 							{{ reject_form }}
 							<button class="btn btn-link" type="submit">
