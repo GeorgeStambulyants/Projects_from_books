@@ -1,4 +1,5 @@
 from unittest.mock import patch
+
 import factory
 
 from qanda.models import Question

@@ -1,23 +1,28 @@
 from django.test import TestCase, RequestFactory
-from unittest.mock import patch
-from datetime import date
 from django.conf import settings
 from django.contrib.auth import get_user_model
-from elasticsearch import Elasticsearch
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+
+from unittest import skip
+from unittest.mock import patch
+from datetime import date
+
 from qanda.models import Question
 from qanda.views import DailyQuestionList
 from qanda.factories import QuestionFactory
 from user.factories import UserFactory
-from django.contrib.staticfiles.testing import StaticLiveServerTestCase
-from selenium.webdriver.chrome.webdriver import WebDriver
+
+from elasticsearch import Elasticsearch
+from selenium import webdriver
 
 
-QUESTION_CREATED_STRFTIME = '%Y-%m-%d %H:%M'
+QUESTION_CREATED_STRFTIME = '%B %d, %Y, %-I:%M %P'
+
 
 class QuestionSaveTestCase(TestCase):
-    '''
+    """
     Tests Question.save()
-    '''
+    """
 
     @patch('qanda.service.elasticsearch.Elasticsearch')
     def test_elasticsearch_upsert_on_save(self, ElasticsearchMock):
@@ -36,6 +41,7 @@ class QuestionSaveTestCase(TestCase):
 
         self.assertIsNotNone(q.id)
         self.assertTrue(ElasticsearchMock.called)
+
         mock_client = ElasticsearchMock.return_value
         mock_client.update.assert_called_once_with(
             settings.ES_INDEX,
@@ -56,17 +62,18 @@ class QuestionSaveTestCase(TestCase):
 
 
 class DailyQuestionTestCase(TestCase):
-    '''
+    """
     Tests the DailyQuestionList view
-    '''
+    """
     QUESTION_LIST_NEEDLE_TEMPLATE = '''
     <li>
-        <a href="/q/{id}">{title}</a>
-        by {username} on {date}
+        <a href="/q/{id}/">{title}</a>
+        by {username}
+        on {date}
     </li>
     '''
 
-    REQUEST = RequestFactory().get(path='/q/2030-12-31')
+    REQUEST = RequestFactory().get(path='/q/2030-12-31/')
     TODAY = date.today()
 
     def test_GET_on_day_with_many_questions(self):
@@ -82,6 +89,8 @@ class DailyQuestionTestCase(TestCase):
         self.assertEqual(200, response.status_code)
         self.assertEqual(10, response.context_data['object_list'].count())
         rendered_content = response.rendered_content
+        with open('log.txt', 'w') as f:
+            f.write(rendered_content)
         for question in todays_questions:
             needle = self.QUESTION_LIST_NEEDLE_TEMPLATE.format(
                 id=question.id,
@@ -105,16 +114,16 @@ class QuestionDetailViewTestCase(TestCase):
     </div>
     '''
     LOGIN_TO_POST_ANSWERS = 'Login to post answers'
-    NO_ANSWERS_SNIPPET = '<li class="answer" >No answers yet!</li >'
+    NO_ANSWERS_SNIPPET = '<li class="answer" >No answers yet</li >'
 
-    def test_logged_in_user_cant_post_answers(self):
+    def test_logged_in_user_can_post_answers(self):
         question = QuestionFactory()
 
         self.assertTrue(self.client.login(
             username=question.user.username,
             password=UserFactory.password)
         )
-        response = self.client.get('/q/{}'.format(question.id))
+        response = self.client.get(f'/q/{question.id}/')
         rendered_content = response.rendered_content
 
         self.assertEqual(200, response.status_code)
@@ -132,12 +141,13 @@ class QuestionDetailViewTestCase(TestCase):
         self.assertInHTML(question_needle, rendered_content)
 
 
+@skip
 class AskQuestionTestCase(StaticLiveServerTestCase):
 
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.selenium = WebDriver(executable_path=settings.CHROMEDRIVER)
+        cls.selenium = webdriver.Firefox()
         cls.selenium.implicitly_wait(10)
     
     @classmethod
