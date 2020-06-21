@@ -3,7 +3,6 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 
-from unittest import skip
 from unittest.mock import patch
 from datetime import date
 
@@ -138,7 +137,6 @@ class QuestionDetailViewTestCase(TestCase):
         self.assertInHTML(question_needle, rendered_content)
 
 
-@skip
 class AskQuestionTestCase(StaticLiveServerTestCase):
 
     @classmethod
