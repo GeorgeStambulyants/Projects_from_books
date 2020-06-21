@@ -16,7 +16,7 @@ from elasticsearch import Elasticsearch
 from selenium import webdriver
 
 
-QUESTION_CREATED_STRFTIME = '%B %d, %Y, %-I:%M %P'
+QUESTION_CREATED_STRFTIME = '%Y-%m-%d %H:%M'
 
 
 class QuestionSaveTestCase(TestCase):
@@ -89,8 +89,7 @@ class DailyQuestionTestCase(TestCase):
         self.assertEqual(200, response.status_code)
         self.assertEqual(10, response.context_data['object_list'].count())
         rendered_content = response.rendered_content
-        with open('log.txt', 'w') as f:
-            f.write(rendered_content)
+
         for question in todays_questions:
             needle = self.QUESTION_LIST_NEEDLE_TEMPLATE.format(
                 id=question.id,
