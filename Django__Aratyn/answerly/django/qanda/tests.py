@@ -12,7 +12,6 @@ from qanda.views import DailyQuestionList
 from qanda.factories import QuestionFactory
 from user.factories import UserFactory
 
-from elasticsearch import Elasticsearch
 from selenium import webdriver
 
 
@@ -49,7 +48,6 @@ class QuestionSaveTestCase(TestCase):
             q.id,
             {
                 'doc': {
-                    '_type': 'doc',
                     'text': '{}\n{}'.format(question_title, question_body),
                     'question_body': question_body,
                     'title': question_title,
