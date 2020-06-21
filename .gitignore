@@ -1,21 +1,25 @@
-
+# virtual environments. They will be removed soon
 *venv
 env
+
+# need to remove this
 bootstrap-4.4.1-dist
 bootstrap-4.4.1-dist.zip
+
+# IDEs and text editors stuff
 .idea
-__pycache__
-*.log
 .vscode
-config.py
+
+# Python stuff
+__pycache__
 *.pyc
-.coverage
-htmlcov
-chromedriver
+
+# Logs
+*.log
+
+# development database from django projects
 db.sqlite3
-ngrok
-static_for_dep
-node_modules
-dist
-exports.sh
+
+# environment variables from different projects
 .env
+
