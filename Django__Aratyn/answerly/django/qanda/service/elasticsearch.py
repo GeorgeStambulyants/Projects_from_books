@@ -1,12 +1,14 @@
-import logging
-
 from django.conf import settings
-from elasticsearch import Elasticsearch, TransportError
+
+from elasticsearch import Elasticsearch
 from elasticsearch.helpers import streaming_bulk
 
-FAILED_TO_LOAD_ERROR = 'Failed to load {}: {!r}'
+import logging
 
+
+FAILED_TO_LOAD_ERROR = 'Failed to load {}: {!r}'
 logger = logging.getLogger(__name__)
+
 
 def get_client():
     return Elasticsearch(hosts=[
@@ -49,7 +51,7 @@ def upsert(question_model):
     question_dict = question_model.as_elasticsearch_dict()
     doc_type = question_dict['_type']
     del question_dict['_id']
-    # del question_dict['_type']
+    del question_dict['_type']
     response = client.update(
         settings.ES_INDEX,
         doc_type,

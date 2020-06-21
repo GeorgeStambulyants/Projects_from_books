@@ -17,7 +17,7 @@ urlpatterns = [
         name='ask',
     ),
     path(
-        'q/<int:pk>',
+        'q/<int:pk>/',
         views.QuestionDetailView.as_view(),
         name='question_detail',
     ),
@@ -37,7 +37,7 @@ urlpatterns = [
         name='daily_questions'
     ),
     path(
-        'q/search', views.SearchView.as_view(),
+        'q/search/', views.SearchView.as_view(),
         name='question_search'
     ),
 ]
