@@ -108,7 +108,7 @@ class QuestionDetailViewTestCase(TestCase):
             Asked by {user} on {date}
         </div>
         <div class="body col-sm-12">
-            {body}
+            <p>{body}</p>
         </div>
     </div>
     '''
@@ -128,7 +128,7 @@ class QuestionDetailViewTestCase(TestCase):
         self.assertEqual(200, response.status_code)
         self.assertInHTML(self.NO_ANSWERS_SNIPPET, rendered_content)
 
-        template_names = [t.names for t in response.templates]
+        template_names = [t.name for t in response.templates]
         self.assertIn('qanda/common/post_answer.html', template_names)
 
         question_needle = self.QUESTION_DISPLAY_SNIPPET.format(
