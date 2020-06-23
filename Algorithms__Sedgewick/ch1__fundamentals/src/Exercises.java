@@ -7,10 +7,16 @@ import edu.princeton.cs.algs4.StdOut;
 
 public class Exercises {
     public static void transposition(int[][] array, int M, int N) {
-        /* TODO
+        /*
             Prints transposition of a two-dimensional array
             with M rows and N columns
          */
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++){
+                StdOut.print(array[j][i] + " ");
+            }
+            StdOut.println();
+        }
     }
 
     public static int lg(int N) {
@@ -22,6 +28,16 @@ public class Exercises {
     }
 
     public static void main(String[] args) {
+        int M = 4;
+        int N = 4;
+        int k = 0;
+        int[][] array = new int[M][N];
 
+        for (int i = 0; i < M; i++) {
+            for (int j = 0; j < N; j++)
+                array[i][j] = k;
+            k++;
+        }
+        transposition(array, M, N);
     }
 }
