@@ -1,9 +1,7 @@
 from django import forms
 from django.contrib.auth import get_user_model
 
-from mailinglist.models import (
-    MailingList, Subscriber, Message,
-)
+from . models import MailingList, Subscriber, Message
 
 
 class SubsciberForm(forms.ModelForm):
@@ -15,7 +13,7 @@ class SubsciberForm(forms.ModelForm):
 
     class Meta:
         model = Subscriber
-        fields = ['mailing_list', 'email', ]
+        fields = ['mailing_list', 'email']
     
 
 class MessageForm(forms.ModelForm):

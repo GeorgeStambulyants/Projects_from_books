@@ -2,7 +2,7 @@
 
 {% block title %}
   Your mailing Lists
-{% endblock %}
+{% endblock title %}
 
 {% block body %}
   <div class="row user-mailing-lists">
@@ -13,16 +13,16 @@
           New List
         </a>
       </div>
-      <p>Your maling lists:</p>
+      <p>Your mailing lists:</p>
       <ul class="mailing-list-list">
-        {% for mailinglist in mailinglist_list %}
+        {% for mailinglist in mailinglists %}
           <li class="mailinglist-item">
-            <a href="{% 'mailinglist:manage_mailinglist' pk=mailinglist.id %">
-              {{ mainlinglist.name }}
+            <a href="{% url 'mailinglist:manage_mailinglist' pk=mailinglist.id %}">
+              {{ mailinglist.name }}
             </a>
           </li>
         {% endfor %}
       </ul>
     </div>
   </div>
-{% endblock %}
+{% endblock body %}

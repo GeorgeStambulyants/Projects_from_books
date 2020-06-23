@@ -31,13 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'user',
-    'mailinglist',
-
-    'crispy_forms',
-    'markdownify',
-    'django_celery_results',
-    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,6 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+
+    # Local
+    'user',
+    'mailinglist',
+
+    # Third-party
+    'crispy_forms',
+    'markdownify',
+    'django_celery_results',
 ]
 
 MIDDLEWARE = [
@@ -85,12 +87,8 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mailape',
-        'USER': 'mailape',
-        'PASSWORD': 'development',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -138,7 +136,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # login/logout settings
 LOGIN_URL = 'user:login'
-LOGIN_REDIRECT_URL = 'mailinglist:mailinglist_list'
+LOGIN_REDIRECT_URL = 'mailinglist:mailinglists'
 LOGOUT_REDIRECT_URL = 'user:login'
 
 # Email settings

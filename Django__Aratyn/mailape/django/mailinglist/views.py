@@ -1,43 +1,27 @@
-from django.contrib.auth.mixins import (
-    LoginRequiredMixin,
-)
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy, reverse
+from django.shortcuts import get_object_or_404
+from django.core.exceptions import PermissionDenied
 from django.views.generic import (
     ListView, CreateView, DeleteView, DetailView,
 )
-from mailinglist.models import (
-    MailingList, Subscriber, Message
-)
-from mailinglist.forms import (
-    MailingListForm, SubsciberForm, MessageForm,
-)
-from mailinglist.mixins import (
-    UserCanUseMailingList,
-)
-from django.urls import (
-    reverse_lazy, reverse,
-)
-from django.shortcuts import (
-    get_object_or_404,
-)
-from django.core.exceptions import (
-    PermissionDenied
-)
-from rest_framework import (
-    generics,
-)
-from rest_framework.permissions import (
-    IsAuthenticated,
-)
-from mailinglist.serializers import (
+
+from . models import MailingList, Subscriber, Message
+from . forms import MailingListForm, SubsciberForm, MessageForm
+from . mixins import UserCanUseMailingList
+from . serializers import (
     MailingListSerializer, SubscriberSerializer,
     ReadOnlyEmailSubscriberSerializer,
 )
-from mailinglist.permissions import (
-    CanUseMailingList,
-)
+from . permissions import CanUseMailingList
+
+from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
 
 
 class MailingListListView(LoginRequiredMixin, ListView):
+    context_object_name = 'mailinglists'
+    template_name = 'mailinglist/mailinglists.html'
 
     def get_queryset(self):
         return MailingList.objects.filter(owner=self.request.user)
@@ -53,14 +37,12 @@ class CreateMailingListView(LoginRequiredMixin, CreateView):
         }
 
 
-class DeleteMailingListView(LoginRequiredMixin, UserCanUseMailingList,
-                            DeleteView):
+class DeleteMailingListView(LoginRequiredMixin, UserCanUseMailingList, DeleteView):
     model = MailingList
-    success_url = reverse_lazy('mailinglist:mailinglist_list')
+    success_url = reverse_lazy('mailinglist:mailinglists')
 
 
-class MailingListDetailView(LoginRequiredMixin, UserCanUseMailingList,
-                            DetailView):
+class MailingListDetailView(LoginRequiredMixin, UserCanUseMailingList, DetailView):
     model = MailingList
 
 
@@ -70,19 +52,19 @@ class SubscribeToMailingListView(CreateView):
 
     def get_initial(self):
         return {
-            'mailing_list': self.kwargs['mailinglist_id']
+            'mailing_list': self.kwargs['mailinglist_pk']
         }
-    
+
     def get_success_url(self):
         return reverse(
-            'mailinglist:subsciber_thankyou', kwargs={
+            'mailinglist:subscriber_thankyou', kwargs={
                 'pk': self.object.mailing_list.id,
             }
         )
     
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        mailing_list_id = self.kwargs['mailinglist_id']
+        mailing_list_id = self.kwargs['mailinglist_pk']
         ctx['mailing_list'] = get_object_or_404(
             MailingList,
             id=mailing_list_id
@@ -131,7 +113,7 @@ class CreateMessageView(LoginRequiredMixin, CreateView):
                 'pk': self.object.mailing_list.id
             }
         )
-    
+
     def get_initial(self):
         mailing_list = self.get_mailing_list()
         return {
@@ -168,8 +150,7 @@ class CreateMessageView(LoginRequiredMixin, CreateView):
         return mailing_list
 
 
-class MessageDetailView(LoginRequiredMixin, UserCanUseMailingList,
-                        DetailView):
+class MessageDetailView(LoginRequiredMixin, UserCanUseMailingList, DetailView):
     model = Message
 
 
@@ -190,9 +171,7 @@ class MailingListCreateListView(generics.ListCreateAPIView):
         return super().get_serializer(*args, **kwargs)
 
 
-class MailingListRetrievUpdateDestroyView(
-    generics.RetrieveUpdateDestroyAPIView):
-
+class MailingListRetrievUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAuthenticated, CanUseMailingList)
     serializer_class = MailingListSerializer
     queryset = MailingList.objects.all()
@@ -222,10 +201,8 @@ class SubscriberListCreateView(generics.ListCreateAPIView):
         return super().get_serializer(*args, **kwargs)
 
 
-class SubscriberRetrievUpdateDestroyView(
-    generics.RetrieveUpdateDestroyAPIView):
+class SubscriberRetrievUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
 
     permission_classes = (IsAuthenticated, CanUseMailingList)
     serializer_class = ReadOnlyEmailSubscriberSerializer
     queryset = Subscriber.objects.all()
-    

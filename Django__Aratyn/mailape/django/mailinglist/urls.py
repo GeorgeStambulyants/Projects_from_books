@@ -1,5 +1,6 @@
 from django.urls import path
-from mailinglist import views
+
+from . import views
 
 
 app_name = 'mailinglist'
@@ -8,7 +9,7 @@ urlpatterns = [
     path(
         '',
         views.MailingListListView.as_view(),
-        name='mailinglist_list',
+        name='mailinglists',
     ),
     path(
         'new',
@@ -21,7 +22,7 @@ urlpatterns = [
         name='delete_mailinglist',
     ),
     path(
-        '<uuid:pk>/manage',
+        '<uuid:pk>/manage/',
         views.MailingListDetailView.as_view(),
         name='manage_mailinglist',
     ),
@@ -31,7 +32,7 @@ urlpatterns = [
         name='subscribe',
     ),
     path(
-        '<uuid:pk>/thankyou',
+        '<uuid:pk>/thankyou/',
         views.ThankYouForSubscribingView.as_view(),
         name='subscriber_thankyou',
     ),
@@ -51,7 +52,7 @@ urlpatterns = [
         name='create_message',
     ),
     path(
-        'message/<uuid:pk>',
+        'message/<uuid:pk>/',
         views.MessageDetailView.as_view(),
         name='view_message',
     ),

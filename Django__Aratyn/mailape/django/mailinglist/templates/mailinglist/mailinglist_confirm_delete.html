@@ -9,8 +9,8 @@
   <form action="" method="post">
     {% csrf_token %}
     <p>Are you sure you want to delete {{ mailinglist.name }}?</p>
-    <input type="submit" class="btn btn-danget btn-sm" value="Yes">
-    <a href="{% url 'mailinglist:manage_mailinglist' pk=mailinglist.id %}" class="btn">
+    <input type="submit" class="btn btn-danger btn-sm" value="Yes">
+    <a href="{% url 'mailinglist:manage_mailinglist' pk=mailinglist.id %}" class="btn btn-primary btn-lg">
       No
     </a>
   </form>

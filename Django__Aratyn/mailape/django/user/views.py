@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse
+from django.shortcuts import reverse
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView
 
