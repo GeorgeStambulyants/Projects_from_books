@@ -28,16 +28,6 @@ public class Exercises {
     }
 
     public static void main(String[] args) {
-        int M = 4;
-        int N = 4;
-        int k = 0;
-        int[][] array = new int[M][N];
-
-        for (int i = 0; i < M; i++) {
-            for (int j = 0; j < N; j++)
-                array[i][j] = k;
-            k++;
-        }
-        transposition(array, M, N);
+        
     }
 }
