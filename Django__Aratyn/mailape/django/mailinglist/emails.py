@@ -2,8 +2,9 @@ from django.conf import settings
 from django.template import Context, engines
 from django.shortcuts import reverse
 from django.core.mail import send_mail
-from datetime import datetime
 from django.utils.datetime_safe import datetime
+
+from datetime import datetime
 
 
 CONFIRM_SUBSCRIPTION_HTML = 'mailinglist/email/confirmation.html'
@@ -24,7 +25,7 @@ class EmailTemplateContext(Context):
         email_ctx = self.common_context(subscriber)
         email_ctx.update(dict_)
         super().__init__(email_ctx, **kwargs)
-    SUBSCRIBER_MESSAGE_TXT = 'mailing/email/subscriber_message.txt'
+
     def common_context(self, subscriber):
         subscriber_pk_kwargs = {'pk': subscriber.id}
         unsubscribe_path = reverse(

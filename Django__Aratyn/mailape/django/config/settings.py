@@ -140,14 +140,14 @@ LOGIN_REDIRECT_URL = 'mailinglist:mailinglists'
 LOGOUT_REDIRECT_URL = 'user:login'
 
 # Email settings
-EMAIL_HOST = 'smtp.example.com' # need to change
-EMAIL_HOST_USER = 'username' # same
+EMAIL_HOST = 'smtp.example.com'  # need to change
+EMAIL_HOST_USER = 'username'  # same
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_PASSWORD = 'some password' # use os.getenv('EMAIL_PASSWORD)
+EMAIL_HOST_PASSWORD = 'some password'  # use os.getenv('EMAIL_PASSWORD')
 
-MAILING_LIST_FROM_EMAIL = 'noreply@example.com' # change this as well
-MIALIN_LIST_LINK_DOMAIN = 'http://localhost:8000'
+MAILING_LIST_FROM_EMAIL = 'noreply@example.com'  # change this as well
+MAILIN_LIST_LINK_DOMAIN = 'http://localhost:8000'
 
 # While smpt server is not configured. Use only in development
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
