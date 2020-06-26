@@ -43,7 +43,7 @@ def send_confirmation_email(subscriber):
     mailing_list = subscriber.mailing_list
     confirmation_link = EmailTemplateContext.make_link(
         reverse(
-            'mailinglist:confirm_subscribtion',
+            'mailinglist:confirm_subscription',
             kwargs={'pk': subscriber.id}
         )
     )
@@ -77,8 +77,8 @@ def send_subscriber_message(subscriber_message):
     dt_engine = engines['django'].engine
     text_body_template = dt_engine.get_template(SUBSCRIBER_MESSAGE_TXT)
     text_body = text_body_template.render(context=context)
-    html_body_tempalte = dt_engine.get_template(SUBSCRIBER_MESSAGE_HTML)
-    html_body = html_body_tempalte.render(context=context)
+    html_body_template = dt_engine.get_template(SUBSCRIBER_MESSAGE_HTML)
+    html_body = html_body_template.render(context=context)
 
     utcnow = datetime.utcnow()
 
