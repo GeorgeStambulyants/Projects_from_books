@@ -4,7 +4,6 @@ from django.urls import reverse
 
 import uuid
 
-from . import emails
 from . import tasks
 
 
@@ -69,6 +68,8 @@ class Message(models.Model):
     body = models.TextField()
     started = models.DateTimeField(default=None, null=True)
     finished = models.DateTimeField(default=None, null=True)
+
+    objects = models.Manager()
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         super().save(
