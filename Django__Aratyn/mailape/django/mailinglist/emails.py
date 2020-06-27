@@ -58,7 +58,6 @@ def send_confirmation_email(subscriber):
     text_body = text_body_template.render(context=context)
     html_body_template = dt_engine.get_template(CONFIRM_SUBSCRIPTION_HTML)
     html_body = html_body_template.render(context=context)
-
     send_mail(
         subject=subject,
         message=text_body,

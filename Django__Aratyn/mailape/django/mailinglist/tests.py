@@ -1,11 +1,14 @@
 from django.test import TestCase
-from unittest.mock import patch
-from mailinglist.models import Subscriber, MailingList
 from django.contrib.auth import get_user_model
-from mailinglist.factories import SubscriberFactory
+
 from rest_framework.test import APITestCase
+
 import base64
 import json
+from unittest.mock import patch
+
+from . models import Subscriber, MailingList
+from . factories import SubscriberFactory
 
 
 class MockSendEmailToSubscriberTask:
@@ -43,7 +46,7 @@ class SubscriberCreationTestCase(MockSendEmailToSubscriberTask, TestCase):
 
 class SubscriberManagerTestCase(TestCase):
     
-    def testConfirmedSubscribedForMailingList(self):
+    def test_confirmed_subscribed_for_mailingList(self):
         mailing_list = MailingList.objects.create(
             name='unit test',
             owner=get_user_model().objects.create_user(

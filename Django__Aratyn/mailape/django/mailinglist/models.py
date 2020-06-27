@@ -72,6 +72,7 @@ class Message(models.Model):
     objects = models.Manager()
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+        is_new = self._state.adding or force_insert
         super().save(
             force_insert=force_insert,
             force_update=force_update,
@@ -103,8 +104,7 @@ class SubscriberMessage(models.Model):
 
     objects = SubscriberMessageManager()
 
-    def save(self, force_insert=False, force_update=False, using=None,
-             update_fields=None):
+    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         is_new = self._state.adding or force_insert
         super().save(
             force_insert=force_insert,
