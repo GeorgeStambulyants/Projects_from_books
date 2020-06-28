@@ -1,17 +1,18 @@
+package basic_programming_model__1_1;
 /*
-    class BinarySearch must be tested with test data.
+    class basic_programming_model__1_1.BinarySearch must be tested with test data.
     It can be find at https://algs4.cs.princeton.edu/code/
     -------------------------------------------------------
     Test with following files:
         * tinyW.txt and tinyT.txt
         * largeW.txt and largeT.txt
     Testing format after compilation:
-        1) $ java BinarySearch tinyW.txt < tinyT.txt
+        1) $ java basic_programming_model__1_1.BinarySearch tinyW.txt < tinyT.txt
             output:
                 50
                 99
                 13
-        2) $ java BinarySearch largeW.txt < largeT.txt
+        2) $ java basic_programming_model__1_1.BinarySearch largeW.txt < largeT.txt
             output is very long and omitted here
  */
 

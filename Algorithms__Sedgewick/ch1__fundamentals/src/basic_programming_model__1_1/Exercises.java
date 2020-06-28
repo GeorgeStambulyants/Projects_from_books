@@ -1,4 +1,4 @@
-/*
+package basic_programming_model__1_1;/*
 * All exercise solutions of the 1.1 paragraph
 * TODO: rewrite this heading
 * */
