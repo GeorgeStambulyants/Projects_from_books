@@ -4,3 +4,7 @@ algs4-data
 
 # built files
 out/
+
+# IntelliJ's stuff
+*.iml
+
