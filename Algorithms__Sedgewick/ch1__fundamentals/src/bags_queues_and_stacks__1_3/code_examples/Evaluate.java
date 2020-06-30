@@ -5,7 +5,7 @@
     fully parenthesized, with numbers and characters separated
     by whitespaces
  */
-package bags_queues_and_stacks__1_3;
+package bags_queues_and_stacks__1_3.code_examples;
 
 import edu.princeton.cs.algs4.Stack;
 import edu.princeton.cs.algs4.StdIn;

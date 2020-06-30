@@ -1,7 +1,7 @@
 /*
     Typical Bag Client
  */
-package bags_queues_and_stacks__1_3;
+package bags_queues_and_stacks__1_3.code_examples;
 
 import edu.princeton.cs.algs4.Bag;
 import edu.princeton.cs.algs4.StdIn;
