@@ -25,9 +25,3 @@ CACHES = {
         'TIMEOUT': int(os.getenv('DJANGO_CACHE_TIMEOUT'), ),
     }
 }
-
-# file uploads
-DEFAULT_FILE_STORAGE = 'storage.backends.s3boto3.S3Boto3Storage'
-AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY_ID')
-AWS_STORAGE_BUCKET_NAME = os.getenv('DJANGO_UPLOAD_S3_BUCKET')
