@@ -8,10 +8,6 @@
  */
 package bags_queues_and_stacks__1_3.algorithms;
 
-import bags_queues_and_stacks__1_3.code_examples.FixedCapacityStack;
-import edu.princeton.cs.algs4.StdIn;
-import edu.princeton.cs.algs4.StdOut;
-
 import java.util.Iterator;
 
 
