@@ -28,7 +28,7 @@ DEBUG = True
 THUMBNAIL_DEBUG = True
 
 ALLOWED_HOSTS = [
-    'mysite.com', 'localhost', '127.0.0.1', '916a4ca6.ngrok.io'
+    'mysite.com', 'localhost', '127.0.0.1',
 ]
 
 
@@ -147,15 +147,15 @@ AUTHENTICATION_BACKENDS = [
     'social_core.backends.google.GoogleOAuth2',
 ]
 
-SOCIAL_AUTH_FACEBOOK_KEY = ''  # Facebook App ID. Need to be provided
-SOCAIL_AUTH_FACEBOOK_SECRET = ''  # Facebook App Secret. Need to be provided
+SOCIAL_AUTH_FACEBOOK_KEY = os.getenv('SOCIAL_AUTH_FACEBOOK_KEY')
+SOCIAL_AUTH_FACEBOOK_SECRET = os.getenv('SOCIAL_AUTH_FACEBOOK_SECRET')
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
-SOCIAL_AUTH_TWITTER_KEY = ''  # Twitter Consumer Key. Need to be provided
-SOCIAL_AUTH_TWITTER_SECRET = ''  # Twitter Consume Secret. Need to be provided
+SOCIAL_AUTH_TWITTER_KEY = os.getenv('SOCIAL_AUTH_TWITTER_KEY')
+SOCIAL_AUTH_TWITTER_SECRET = os.getenv('SOCIAL_AUTH_TWITTER_SECRET')
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = ''  # Google Consumer Key. Need to be provided
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = ''  # Google Consumer Secret. Need to be provided
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
 
 ABSOLUTE_URL_OVERRIDES = {
     'auth.user': lambda u: reverse_lazy('user_detail', args=[u.username])

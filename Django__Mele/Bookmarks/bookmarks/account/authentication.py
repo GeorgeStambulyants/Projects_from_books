@@ -2,9 +2,9 @@ from django.contrib.auth.models import User
 
 
 class EmailAuthBackend:
-    '''
+    """
     To authenticate users via email
-    '''
+    """
     def authenticate(self, requst, username=None, password=None):
         try:
             user = User.objects.get(email=username)

@@ -1,42 +1,19 @@
-from django.shortcuts import (
-    render,
-)
-from django.http import (
-    HttpResponse, JsonResponse,
-)
-from django.contrib.auth import (
-    authenticate, login,
-)
-from django.contrib.auth.decorators import (
-    login_required,
-)
-from django.contrib import (
-    messages,
-)
-from  django.shortcuts import (
-    get_object_or_404,
-)
-from django.views.decorators.http import (
-    require_POST,
-)
-from django.contrib.auth.models import (
-    User,
-)
-from common.decorators import (
-    ajax_required,
-)
+from django.shortcuts import render
+from django.http import HttpResponse, JsonResponse
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.shortcuts import get_object_or_404
+from django.views.decorators.http import require_POST
+from django.contrib.auth.models import User
+
+from common.decorators import ajax_required
 from .forms import (
     LoginForm, UserRegistrationForm, UserEditForm, ProfileEditForm
 )
-from .models import (
-    Profile, Contact,
-)
-from actions.utils import (
-    create_action,
-)
-from actions.models import (
-    Action,
-)
+from .models import Profile, Contact
+from actions.utils import create_action
+from actions.models import Action
 
 
 def user_login(request):
@@ -90,7 +67,7 @@ def register(request):
             new_user.save()
             Profile.objects.create(user=new_user)
             create_action(new_user, 'has created an account')
-            return  render(
+            return render(
                 request,
                 'account/register_done.html',
                 {'new_user': new_user}
@@ -184,4 +161,4 @@ def user_follow(request):
             return JsonResponse({'status': 'ok'})
         except User.DoesNotExist:
             return JsonResponse({'status': 'ok'})
-        return JsonResponse({'status': 'ok'})
+    return JsonResponse({'status': 'ok'})
