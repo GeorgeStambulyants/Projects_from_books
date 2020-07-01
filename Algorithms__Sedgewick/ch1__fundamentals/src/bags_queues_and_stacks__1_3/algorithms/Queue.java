@@ -1,14 +1,16 @@
 /*
     ALGORITHM 1.3 -- FIFO queue
     ---------------------------
+    This generic Queue implementation is based on a linked-list
+    data-structure. It can be used to create queues containing
+    any type of data.
  */
 package bags_queues_and_stacks__1_3.algorithms;
 
+import java.util.Iterator;
 
-import edu.princeton.cs.algs4.StdIn;
-import edu.princeton.cs.algs4.StdOut;
 
-public class Queue<Item> {
+public class Queue<Item> implements Iterable<Item> {
     private Node first;  // link to least recently added node
     private Node last;  // link to most recently added node
     private int N;  // number of items on the queue
@@ -57,17 +59,24 @@ public class Queue<Item> {
         return item;
     }
 
-    public static void main(String[] args) {
-        // Create a queue and enqueue/dequeue strings
-        Queue<String> q = new Queue<String>();
+    public Iterator<Item> iterator() {
+        return new ListIterator();
+    }
 
-        while(!StdIn.isEmpty()) {
-            String item = StdIn.readString();
-            if (!item.equals("-"))
-                q.enqueue(item);
-            else if (!q.isEmpty())
-                StdOut.print(q.dequeue() + " ");
+    private class ListIterator implements Iterator<Item> {
+        private Node current = first;
+
+        public boolean hasNext() {
+            return current != null;
         }
-        StdOut.println("(" + q.size() + " left on queue)");
+
+        public Item next() {
+            Item item = current.item;
+            current = current.next;
+
+            return item;
+        }
+
+        public void remove() {}
     }
 }
