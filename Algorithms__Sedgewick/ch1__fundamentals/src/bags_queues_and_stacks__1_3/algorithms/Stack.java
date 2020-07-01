@@ -6,11 +6,10 @@
  */
 package bags_queues_and_stacks__1_3.algorithms;
 
+import java.util.Iterator;
 
-import edu.princeton.cs.algs4.StdIn;
-import edu.princeton.cs.algs4.StdOut;
 
-public class Stack<Item> {
+public class Stack<Item> implements Iterable<Item> {
     private Node first;  // top of stack (most recently added node)
     private int N;  // number of items
 
@@ -48,17 +47,24 @@ public class Stack<Item> {
         return item;
     }
 
-    public static void main(String[] args) {
-        // Test Client
-        Stack<String> s;
-        s = new Stack<String>();
-        while (!StdIn.isEmpty()) {
-            String item = StdIn.readString();
-            if (!item.equals("-"))
-                s.push(item);
-            else if (!s.isEmpty())
-                StdOut.print(s.pop() + " ");
+    public Iterator<Item> iterator() {
+        return new ListIterator();
+    }
+
+    private class ListIterator implements Iterator<Item> {
+        private Node current = first;
+
+        public boolean hasNext() {
+            return current != null;
         }
-        StdOut.println("(" + s.size() + " left on stack)");
+
+        public Item next() {
+            Item item = current.item;
+            current = current.next;
+
+            return item;
+        }
+
+        public void remove() {}
     }
 }
