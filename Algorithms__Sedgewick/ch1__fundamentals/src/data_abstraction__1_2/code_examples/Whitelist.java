@@ -1,4 +1,4 @@
-package data_abstraction__1_2;
+package data_abstraction__1_2.code_examples;
 
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdIn;
