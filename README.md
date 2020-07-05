@@ -200,33 +200,87 @@ __Python libs I worked with__(libraries, that are the same as in Blog, Shop and 
 - - -
 
 ### "Django for APIs", William S. Vincent ###
-editing...
+In this book I have learned how to build multiple RESTful APIs. Three projects were built using Django and Django Rest Framework.
+
+#### [library](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django_for_APIs__Vincent/library) ####
+This is a simple basic library website, that was extended into a web API with Django REST Framework.
+
+#### [todo API](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django_for_APIs__Vincent/todo) ####
+In this project a simple Todo API back-end was built. Then it was connected with a React front-end
+
+__Additional Python libs__:
+* django-cors-headers
+
+#### [Blog API](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django_for_APIs__Vincent/blogapi) ####
+In this project full set of Django REST Framework features were used. This application has users, permissions and allows for full CRUD functionality.
+
+__Additional Python libs__
+* django-rest-auth
+* django-allauth
 
 - - -
 
-### "Django for Professionals", William S. Vincent ###
-editing...
+### ["Django for Professionals", William S. Vincent](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django_for_Professionals__Vincent/) ###
+In this book Bookstore project was built.
+
+__In this web application I have learned about__:
+* Docker and how it can be used during development and production with Django
+* Docker-compose
+* Static assets and how to manage them in Django project
+* Integrating a payment gateway
+* Measuring performance in Django project
+* Security in Django projects
+* Deployment with Heroku
+* And a lot of other insteresting Django stuff
+
+__Python libs I worked with__:
+* django-all-auth
+* pillow
+* stripe
+* django-debug-toolbar
+* whitenoise
+* gunicorn
+* dj-database-url
+* django-crispy-forms
 
 - - -
 
-### "Django for Beginners", William S. Vincent ###
-editing...
+### ["Django for Beginners", William S. Vincent](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django_for_Beginners__Vincent/) ###
+Nothing interesting here. Just four small simple Django projects to learn the basics.
 
 - - -
 
-### "Practical Django 2 and Channels 2", Frederico Marani ###
-editing...
+### ["Practical Django 2 and Channels 2", Frederico Marani](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django__Marani) ###
+Coming soon... Book is not finished.
 
 - - -
 
-### "Flask By Example", Gareth Dwyer ###
-editing...
+### ["Flask By Example", Gareth Dwyer](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Flask__Dwyer) ###
+This book taught me the basics of the Flask Web Framework. Two projects were built
+
+#### [Headlines Project](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Flask__Dwyer/headlines) ####
+Headlines application displays up-to-date news headlines, weather information and currency exchange.
+
+__In this web application I have learned about__:
+* Flask basics
+* Using RSS feeds from Python
+* Working with different APIs
+* Deployment on VPS
+
+#### [Crimemap project](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Flask__Dwyer/crimemap) ####
+Crimemap is an interactive crime map that allows to tag locations with details of witnessed or experienced criminal activities
+
+__In this web application I have learned about__:
+* MySQL and how to work with it from Python
+* Deployment on VPS
+* Security in Flask applications
+* Working with different APIs
+* Using static assets in Flask application
 
 - - -
 
-### "Flask Web Development", Miguel Grinberg ###
-editing...
-
+### ["Flask Web Development", Miguel Grinberg](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Flask__Grinberg) ###
+Comming soon... Book is not finished.
 - - -
 
 ### "Test-Driven Development with Python", Harry J.W. Percival ###
