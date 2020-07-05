@@ -199,7 +199,7 @@ __Python libs I worked with__(libraries, that are the same as in Blog, Shop and 
 
 - - -
 
-### "Django for APIs", William S. Vincent ###
+### ["Django for APIs", William S. Vincent](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django_for_APIs__Vincent) ###
 In this book I have learned how to build multiple RESTful APIs. Three projects were built using Django and Django Rest Framework.
 
 #### [library](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django_for_APIs__Vincent/library) ####
@@ -280,7 +280,7 @@ __In this web application I have learned about__:
 - - -
 
 ### ["Flask Web Development", Miguel Grinberg](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Flask__Grinberg) ###
-Comming soon... Book is not finished. This section will be updated.
+Coming soon... Book is not finished. This section will be updated.
 - - -
 
 ### ["Test-Driven Development with Python", Harry J.W. Percival](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django_TDD__Percival) ###
@@ -308,7 +308,7 @@ In this book I've learned about Docker basics, Docker Hub and how to use Docker 
 
 - - -
 
-### ["Python for DevOps", Noah Gift](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/DevOps__Noah) ###
+### ["Python for DevOps", Noah Gift](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/DevOps_with_Python__Noah) ###
 This book is not finished yet. So far it taught me about some usefull tools and approaches. This section will be updated.
 
 __Python libs I worked with__:
