@@ -15,18 +15,18 @@ This file is regularly updated. All finished books are marked.
 
 ### Algorithms and Data Structures ###
 * __"[Algorithms Unlocked](#user-content-algorithms-unlocked-thomas-h-cormen)"__ -- _Thomas H. Cormen_ | (**FINISHED**)
-* __"[Algorithms]((#user-content-algorithms-robert-sedgewick-and-kevin-wayne))"__ -- _Robert Sedgewick and Kevin Wayne_
+* __"[Algorithms](#user-content-algorithms-robert-sedgewick-and-kevin-wayne)"__ -- _Robert Sedgewick and Kevin Wayne_
 
 ### Django ###
-* __"[Building Django Web Applications]((#user-content-building-django-web-applications-tom-aratyn))"__ -- _Tom Aratyn_ | (**FINISHED**)
-* __"[Django 3 By Example]((#user-content-django-3-by-example-antonio-mele))"__ -- _Antonio Mele_ | (**FINISHED**)
-* __"[Django for APIs]((#user-content-django-for-apis-william-s-vincent))"__ -- _William S. Vincent_ | (**FINISHED**)
-* __"[Django for Professionals]((#user-content-django-for-professionals-william-s-vincent))"__ -- _William S. Vincent_ | (**FINISHED**)
-* __"[Django for Beginners]((#django-for-beginners-william-s-vincent))"__ -- _William S. Vincent_ | (**FINISHED**)
-* __"[Practical Django 2 and Channels 2]((#user-content-practival-django-2-and-channels-2-frederico-marani))"__ -- _Frederico Marani_
+* __"[Building Django Web Applications](#user-content-building-django-web-applications-tom-aratyn)"__ -- _Tom Aratyn_ | (**FINISHED**)
+* __"[Django 3 By Example](#user-content-django-3-by-example-antonio-mele)"__ -- _Antonio Mele_ | (**FINISHED**)
+* __"[Django for APIs](#user-content-django-for-apis-william-s-vincent)"__ -- _William S. Vincent_ | (**FINISHED**)
+* __"[Django for Professionals](#user-content-django-for-professionals-william-s-vincent)"__ -- _William S. Vincent_ | (**FINISHED**)
+* __"[Django for Beginners](#django-for-beginners-william-s-vincent)"__ -- _William S. Vincent_ | (**FINISHED**)
+* __"[Practical Django 2 and Channels 2](#user-content-practival-django-2-and-channels-2-frederico-marani)"__ -- _Frederico Marani_
 
 ### Flask ###
-* __"Flask By Example"__ -- _Gareth Dwyer_
+* [__"Flask By Example"__ -- _Gareth Dwyer_](#user-content-flask-by-example-gareth-dwayer)
 * __"Flask Web Development"__ -- _Miguel Grinberg_
 
 ### Test-Driven Development ###
