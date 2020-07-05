@@ -14,7 +14,7 @@ This file is regularly updated. All finished books are marked.
 ## Table of Contents ##
 
 ### Algorithms and Data Structures ###
-* __"[Algorithms Unlocked]((#user-content-algorithms-unlocked-thomas-h-cormen))"__ -- _Thomas H. Cormen_ | (**FINISHED**)
+* __"[Algorithms Unlocked](#user-content-algorithms-unlocked-thomas-h-cormen)"__ -- _Thomas H. Cormen_ | (**FINISHED**)
 * __"[Algorithms]((#user-content-algorithms-robert-sedgewick-and-kevin-wayne))"__ -- _Robert Sedgewick and Kevin Wayne_
 
 ### Django ###
