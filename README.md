@@ -14,7 +14,7 @@ This file is regularly updated. All finished books are marked.
 ## Table of Contents ##
 
 ### Algorithms and Data Structures ###
-* __"Algorithms Unlocked"__ -- _Thomas H. Cormen_ | (**FINISHED**)
+* [__"Algorithms Unlocked"__ -- _Thomas H. Cormen_ | (**FINISHED**)] (user-content-algorithms-unlocked-thomas-h-cormen)
 * __"Algorithms"__ -- _Robert Sedgewick and Kevin Wayne_
 
 ### Django ###
@@ -45,7 +45,7 @@ This file is regularly updated. All finished books are marked.
 
 ## Books ##
 
-### "Algorithms Unlocked", Thomas H. Cormen
+### "Algorithms Unlocked", Thomas H. Cormen ###
 editiing...
 
 - - -
@@ -55,62 +55,62 @@ editing...
 
 - - -
 
-### __"Building Django Web Applications"__ -- _Tom Aratyn_ | (**FINISHED**) ###
+### "Building Django Web Applications", Tom Aratyn ###
 editing...
 
 - - -
 
-### __"Django 3 By Example"__ -- _Antonio Mele_ | (**FINISHED**) ###
+### "Django 3 By Example", Antonio Mele ###
 editing...
 
 - - -
 
-### __"Django for APIs"__ -- _William S. Vincent_ | (**FINISHED**) ###
+### "Django for APIs", William S. Vincent ###
 editing...
 
 - - -
 
-### __"Django for Professionals"__ -- _William S. Vincent_ | (**FINISHED**) ###
+### "Django for Professionals", William S. Vincent ###
 editing...
 
 - - -
 
-### __"Django for Beginners"__ -- _William S. Vincent_ | (**FINISHED**) ###
+### "Django for Beginners", William S. Vincent ###
 editing...
 
 - - -
 
-### __"Practical Django 2 and Channels 2"__ -- _Frederico Marani_ ###
+### "Practical Django 2 and Channels 2", Frederico Marani ###
 editing...
 
 - - -
 
-### __"Flask By Example"__ -- _Gareth Dwyer_ ###
+### "Flask By Example", Gareth Dwyer ###
 editing...
 
 - - -
 
-### __"Flask Web Development"__ -- _Miguel Grinberg_ ###
+### "Flask Web Development", Miguel Grinberg ###
 editing...
 
 - - -
 
-### __"Test-Driven Development with Python"__ -- _Harry J.W. Percival_ | (**FINISHED**) ###
+### "Test-Driven Development with Python", Harry J.W. Percival ###
 editing...
 
 - - -
 
-### __"Using Docker"__ -- _Adrian Mouat_ ###
+### "Using Docker", Adrian Mouat ###
 editing...
 
 - - -
 
-### __"Python for DevOps"__ -- _Noah Gift, Kennedy Behrman, Alfredo Deza, Grig Cheorghiu_ ###
-editing
+### "Python for DevOps", Noah Gift, Kennedy Behrman, Alfredo Deza, Grig Cheorghiu ###
+edititg
 
 - - -
 
-### __"JavaScript by Example"__ -- _Dani Akash S_ | (**FINISHED**) ###
+### "JavaScript by Example", Dani Akash S ###
 editing...
 
 - - -
