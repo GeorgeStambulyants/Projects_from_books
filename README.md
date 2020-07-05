@@ -47,7 +47,7 @@ This file is regularly updated. All finished books are marked.
 
 ## Books ##
 
-### hey {#hey}
+### hey ###
 ### __"Algorithms Unlocked"__ -- _Thomas H. Cormen_ | (**FINISHED**)
 editiing...
 
