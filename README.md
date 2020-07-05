@@ -9,7 +9,7 @@ Each overview includes the following sections:
 
 This file is regularly updated. All finished books are marked.
 
-------
+- - -
 
 ## Table of Contents ##
 
@@ -41,8 +41,76 @@ This file is regularly updated. All finished books are marked.
 ### JavaScript ###
 * __"JavaScript by Example"__ -- _Dani Akash S_ | (**FINISHED**)
 
----------
+- - -
 
 ## Books ##
 
-**TODO: add all books**
+### __"Algorithms Unlocked"__ -- _Thomas H. Cormen_ | (**FINISHED**) ###
+editiing...
+
+- - -
+
+### __"Algorithms"__ -- _Robert Sedgewick and Kevin Wayne_ ###
+editing...
+
+- - -
+
+### __"Building Django Web Applications"__ -- _Tom Aratyn_ | (**FINISHED**) ###
+editing...
+
+- - -
+
+### __"Django 3 By Example"__ -- _Antonio Mele_ | (**FINISHED**) ###
+editing...
+
+- - -
+
+### __"Django for APIs"__ -- _William S. Vincent_ | (**FINISHED**) ###
+editing...
+
+- - -
+
+### __"Django for Professionals"__ -- _William S. Vincent_ | (**FINISHED**) ###
+editing...
+
+- - -
+
+### __"Django for Beginners"__ -- _William S. Vincent_ | (**FINISHED**) ###
+editing...
+
+- - -
+
+### __"Practical Django 2 and Channels 2"__ -- _Frederico Marani_ ###
+editing...
+
+- - -
+
+### __"Flask By Example"__ -- _Gareth Dwyer_ ###
+editing...
+
+- - -
+
+### __"Flask Web Development"__ -- _Miguel Grinberg_ ###
+editing...
+
+- - -
+
+### __"Test-Driven Development with Python"__ -- _Harry J.W. Percival_ | (**FINISHED**) ###
+editing...
+
+- - -
+
+### __"Using Docker"__ -- _Adrian Mouat_ ###
+editing...
+
+- - -
+
+### __"Python for DevOps"__ -- _Noah Gift, Kennedy Behrman, Alfredo Deza, Grig Cheorghiu_ ###
+editing
+
+- - -
+
+### __"JavaScript by Example"__ -- _Dani Akash S_ | (**FINISHED**) ###
+editing...
+
+- - -
