@@ -125,8 +125,77 @@ __Python libs I worked with__ (libraries, that are the same as in MyMDB and answ
 
 - - -
 
-### "Django 3 By Example", Antonio Mele ###
-editing...
+### ["Django 3 By Example", Antonio Mele](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django__Mele) ###
+Over the course of this book 4 projects were built
+
+#### [Blog](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django__Mele/Blog) ####
+Simple Blog application in Django.
+
+__In this web application I have learned about__:
+* Django basics
+* Sitemaps
+* RSS feeds
+
+__Python libs I worked with__:
+* django
+* django-taggit
+* markdown
+
+#### [Bookmarks](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django__Mele/Bookmarks) ####
+Bookmarks is a simple socail application
+
+
+__In this web application I have learned about__:
+* Authentication and how it can be implemented in Django
+* jQuery basics
+* AJAX
+* Django signals
+* Redis
+
+__Python libs I worked with__(libraries, that are the same as in Blog project are omitted):
+* oauthlib
+* pillow
+* redis
+* sorl-thumbnail
+* social-auth-app-django
+
+#### [Shop](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django__Mele/Shop) ####
+This project is a fully featured online shop
+
+__In this web application I have learned about__:
+* Django sessions
+* Launching asynchronous tasks with Celery
+* RabbitMQ
+* Integrating a payment gateway
+* Generating PDFs
+* Internationalization and localization
+
+__Python libs I worked with__(libraries, that are the same as in Blog and Bookmarks projects are omitted):
+* braintree
+* celery
+* django-localflavor
+* django-parler
+* django-rosetta
+* flower
+* WeasyPrint
+* Pyphen
+
+#### [E-Learning Platform](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django__Mele/E-Learning_Platform) ####
+This project is a E-Learning Platform with content management system (CMS)
+
+__In this web application I have learned about__:
+* CMS and how it can be implemented with Django
+* Caching and Django-s caching API
+* Memcached
+* RESTful API and how it can be implemented in Django
+* Django Channels
+
+__Python libs I worked with__(libraries, that are the same as in Blog, Shop and Bookmarks projects are omitted):
+* channels
+* channels-redis
+* django-braces
+* django_rest_framework
+* python-memcached
 
 - - -
 
