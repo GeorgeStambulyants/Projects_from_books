@@ -70,12 +70,12 @@ What I have learned?
 - - -
 
 ### "Algorithms", Robert Sedgewick and Kevin Wayne ###
-editing...
+Coming soon...
 
 - - -
 
 ### ["Building Django Web Applications", Tom Aratyn](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django__Aratyn) ###
-Over the course of this book 3 projects were built
+Over the course of this book 3 projects were built.
 
 #### [MyMDB](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django__Aratyn/MyMDB) ####
 MyMDB is a basic Internet Movie Database (IMDB) clone.
@@ -126,7 +126,7 @@ __Python libs I worked with__ (libraries, that are the same as in MyMDB and answ
 - - -
 
 ### ["Django 3 By Example", Antonio Mele](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django__Mele) ###
-Over the course of this book 4 projects were built
+Over the course of this book 4 projects were built.
 
 #### [Blog](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django__Mele/Blog) ####
 Simple Blog application in Django.
@@ -142,7 +142,7 @@ __Python libs I worked with__:
 * markdown
 
 #### [Bookmarks](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django__Mele/Bookmarks) ####
-Bookmarks is a simple socail application
+Bookmarks is a simple socail application.
 
 
 __In this web application I have learned about__:
@@ -160,7 +160,7 @@ __Python libs I worked with__(libraries, that are the same as in Blog project ar
 * social-auth-app-django
 
 #### [Shop](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django__Mele/Shop) ####
-This project is a fully featured online shop
+This project is a fully featured online shop.
 
 __In this web application I have learned about__:
 * Django sessions
@@ -181,7 +181,7 @@ __Python libs I worked with__(libraries, that are the same as in Blog and Bookma
 * Pyphen
 
 #### [E-Learning Platform](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django__Mele/E-Learning_Platform) ####
-This project is a E-Learning Platform with content management system (CMS)
+This project is a E-Learning Platform with content management system (CMS).
 
 __In this web application I have learned about__:
 * CMS and how it can be implemented with Django
@@ -206,7 +206,7 @@ In this book I have learned how to build multiple RESTful APIs. Three projects w
 This is a simple basic library website, that was extended into a web API with Django REST Framework.
 
 #### [todo API](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django_for_APIs__Vincent/todo) ####
-In this project a simple Todo API back-end was built. Then it was connected with a React front-end
+In this project a simple Todo API back-end was built. Then it was connected with a React front-end.
 
 __Additional Python libs__:
 * django-cors-headers
@@ -251,7 +251,7 @@ Nothing interesting here. Just four small simple Django projects to learn the ba
 - - -
 
 ### ["Practical Django 2 and Channels 2", Frederico Marani](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django__Marani) ###
-Coming soon... Book is not finished.
+Coming soon... Book is not finished. This section will be updated.
 
 - - -
 
@@ -268,7 +268,7 @@ __In this web application I have learned about__:
 * Deployment on VPS
 
 #### [Crimemap project](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Flask__Dwyer/crimemap) ####
-Crimemap is an interactive crime map that allows to tag locations with details of witnessed or experienced criminal activities
+Crimemap is an interactive crime map that allows to tag locations with details of witnessed or experienced criminal activities.
 
 __In this web application I have learned about__:
 * MySQL and how to work with it from Python
@@ -280,25 +280,73 @@ __In this web application I have learned about__:
 - - -
 
 ### ["Flask Web Development", Miguel Grinberg](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Flask__Grinberg) ###
-Comming soon... Book is not finished.
+Comming soon... Book is not finished. This section will be updated.
 - - -
 
-### "Test-Driven Development with Python", Harry J.W. Percival ###
-editing...
+### ["Test-Driven Development with Python", Harry J.W. Percival](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django_TDD__Percival) ###
+This book taught me about testing approaches using Django.
+
+__In this web application I have learned about__:
+* Test-Driven Development with Django
+* Selenium
+* Functional and Unit testing
+* Deployment using TDD, and how to automate it
+* JavaScript testing
+* Continuous integration (CI)
+* Nginx and how it can be configured with django
+* Different useful tools and python libs
+* And a lot of more interesting stuff
+
+__Python libs I worked with__:
+* selenium
+* gunicorn
+* fabric3
+- - -
+
+### ["Using Docker", Adrian Mouat](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Docker__Mouat) ###
+In this book I've learned about Docker basics, Docker Hub and how to use Docker in development. A simple flask application was built usgin docker and third-party docker images. I haven't finished this book yet, because I left some topics for further reading.
 
 - - -
 
-### "Using Docker", Adrian Mouat ###
-editing...
+### ["Python for DevOps", Noah Gift](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/DevOps__Noah) ###
+This book is not finished yet. So far it taught me about some usefull tools and approaches. This section will be updated.
 
+__Python libs I worked with__:
+* flask
+* fire
+* molotov
+* A lot of modules from Python Standard Library
 - - -
 
-### "Python for DevOps", Noah Gift ###
-edititg
+### ["JavaScript by Example", Dani Akash S](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/JavaScript__Akash) ###
+Three different applications were built with JavaScript.
 
-- - -
+#### [A ToDo List](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/JavaScript__Akash/todoApp) ####
+Simple ToDo List application.
 
-### "JavaScript by Example", Dani Akash S ###
-editing...
+__In this web application I have learned about__:
+* Simple DOM manipulation.
+* Working with event listeners.
+* Setting up a basic JavaScript development environment.
+* A lot of different usefull npm packages.
 
+#### [A Meme Creator](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/JavaScript__Akash/memeCreatorApp) ####
+Simple Meme Creator application.
+
+__In this web application I have learned about__:
+* Canvas element and how to manipulate with it from JavaScript
+* CSS flexbox
+* Webpack
+* Setting up automated development environment using Webpack
+* A lot of different usefull npm packages
+
+#### [Event Registration App](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/JavaScript__Akash/eventRegistrationApp) ####
+Simple event registration application.
+
+__In this web application I have learned about__:
+* Building a responsive application
+* Form validation
+* Building charts to show statistics
+* AJAX
+* A lot of different usefull npm packages.
 - - -
