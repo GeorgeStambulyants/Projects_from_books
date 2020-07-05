@@ -21,6 +21,7 @@ sqlparse = "==0.3.1"
 typed-ast = "==1.4.1"
 urllib3 = "==1.25.8"
 wrapt = "==1.11.2"
+fabric3 = "*"
 
 [requires]
 python_version = "3.7"
