@@ -14,32 +14,32 @@ This file is regularly updated. All finished books are marked.
 ## Table of Contents ##
 
 ### Algorithms and Data Structures ###
-* __"[Algorithms Unlocked](#user-content-algorithms-unlocked-thomas-h-cormen)"__ -- _Thomas H. Cormen_ | (**FINISHED**)
-* __"[Algorithms](#user-content-algorithms-robert-sedgewick-and-kevin-wayne)"__ -- _Robert Sedgewick and Kevin Wayne_
+* [__"Algorithms Unlocked"__ -- _Thomas H. Cormen_ | (**FINISHED**)](#user-content-algorithms-unlocked-thomas-h-cormen)
+* [__"Algorithms"__ -- _Robert Sedgewick and Kevin Wayne_](#user-content-algorithms-robert-sedgewick-and-kevin-wayne)
 
 ### Django ###
-* __"[Building Django Web Applications](#user-content-building-django-web-applications-tom-aratyn)"__ -- _Tom Aratyn_ | (**FINISHED**)
-* __"[Django 3 By Example](#user-content-django-3-by-example-antonio-mele)"__ -- _Antonio Mele_ | (**FINISHED**)
-* __"[Django for APIs](#user-content-django-for-apis-william-s-vincent)"__ -- _William S. Vincent_ | (**FINISHED**)
-* __"[Django for Professionals](#user-content-django-for-professionals-william-s-vincent)"__ -- _William S. Vincent_ | (**FINISHED**)
-* __"[Django for Beginners](#django-for-beginners-william-s-vincent)"__ -- _William S. Vincent_ | (**FINISHED**)
-* __"[Practical Django 2 and Channels 2](#user-content-practival-django-2-and-channels-2-frederico-marani)"__ -- _Frederico Marani_
+* [__"Building Django Web Applications"__ -- _Tom Aratyn_ | (**FINISHED**)](#user-content-building-django-web-applications-tom-aratyn)
+* [__"Django 3 By Example"__ -- _Antonio Mele_ | (**FINISHED**)](#user-content-django-3-by-example-antonio-mele)
+* [__"Django for APIs"__ -- _William S. Vincent_ | (**FINISHED**)](#user-content-django-for-apis-william-s-vincent)
+* [__"Django for Professionals"__ -- _William S. Vincent_ | (**FINISHED**)](#user-content-django-for-professionals-william-s-vincent)
+* [__"Django for Beginners"__ -- _William S. Vincent_ | (**FINISHED**)](#user-content-django-for-beginners-william-s-vincent)
+* [__"Practical Django 2 and Channels 2"__ -- _Frederico Marani_](#user-content-practival-django-2-and-channels-2-frederico-marani)
 
 ### Flask ###
-* [__"Flask By Example"__ -- _Gareth Dwyer_](#user-content-flask-by-example-gareth-dwayer)
-* __"Flask Web Development"__ -- _Miguel Grinberg_
+* [__"Flask By Example"__ -- _Gareth Dwyer_](#user-content-flask-by-example-gareth-dwyer)
+* [__"Flask Web Development"__ -- _Miguel Grinberg_](#user-content-flask-web-development-miguel-grinberg)
 
 ### Test-Driven Development ###
-* __"Test-Driven Development with Python"__ -- _Harry J.W. Percival_ | (**FINISHED**)
+* [__"Test-Driven Development with Python"__ -- _Harry J.W. Percival_ | (**FINISHED**)](#user-content-test-driven-development-with-python-harry-j-w-percival)
 
 ### Docker ###
-* __"Using Docker"__ -- _Adrian Mouat_
+* [__"Using Docker"__ -- _Adrian Mouat_](#user-content-using-docker-adrian-mouat)
 
 ### DevOps ###
-* __"Python for DevOps"__ -- _Noah Gift, Kennedy Behrman, Alfredo Deza, Grig Cheorghiu_
+* [__"Python for DevOps"__ -- _Noah Gift, Kennedy Behrman, Alfredo Deza, Grig Cheorghiu_](#user-content-python-for-devops-noah-gift)
 
 ### JavaScript ###
-* __"JavaScript by Example"__ -- _Dani Akash S_ | (**FINISHED**)
+* [__"JavaScript by Example"__ -- _Dani Akash S_ | (**FINISHED**)](#javascript-by-example-dani-akash-s)
 
 - - -
 
@@ -105,7 +105,7 @@ editing...
 
 - - -
 
-### "Python for DevOps", Noah Gift, Kennedy Behrman, Alfredo Deza, Grig Cheorghiu ###
+### "Python for DevOps", Noah Gift ###
 edititg
 
 - - -
