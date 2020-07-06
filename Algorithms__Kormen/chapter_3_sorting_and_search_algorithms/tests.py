@@ -8,6 +8,11 @@ from quick_sort import quick_sort
 
 
 class TestSortingAlgorithms(unittest.TestCase):
+    """
+    This class tests insertion sort,
+    selection sort, merge sort and quick sort
+    algorithms.
+    """
 
     def setUp(self):
         self.array_1 = list(range(20))
