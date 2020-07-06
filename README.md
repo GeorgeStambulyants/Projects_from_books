@@ -152,7 +152,7 @@ __In this web application I have learned about__:
 * Django signals
 * Redis
 
-__Python libs I worked with__(libraries, that are the same as in Blog project are omitted):
+__Python libs I worked with__ (libraries, that are the same as in Blog project are omitted):
 * oauthlib
 * pillow
 * redis
@@ -170,7 +170,7 @@ __In this web application I have learned about__:
 * Generating PDFs
 * Internationalization and localization
 
-__Python libs I worked with__(libraries, that are the same as in Blog and Bookmarks projects are omitted):
+__Python libs I worked with__ (libraries, that are the same as in Blog and Bookmarks projects are omitted):
 * braintree
 * celery
 * django-localflavor
@@ -178,7 +178,6 @@ __Python libs I worked with__(libraries, that are the same as in Blog and Bookma
 * django-rosetta
 * flower
 * WeasyPrint
-* Pyphen
 
 #### [E-Learning Platform](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django__Mele/E-Learning_Platform) ####
 This project is a E-Learning Platform with content management system (CMS).
@@ -190,7 +189,7 @@ __In this web application I have learned about__:
 * RESTful API and how it can be implemented in Django
 * Django Channels
 
-__Python libs I worked with__(libraries, that are the same as in Blog, Shop and Bookmarks projects are omitted):
+__Python libs I worked with__ (libraries, that are the same as in Blog, Shop and Bookmarks projects are omitted):
 * channels
 * channels-redis
 * django-braces
