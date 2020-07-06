@@ -2,10 +2,10 @@
 #
 # Time: O(n*lg(n)) - this is not the worst case.
 # This algorithm sorts any array by this time
+from typing import List
 
 
-
-def merge_sort(array):
+def merge_sort(array: List) -> None:
     if len(array) <= 1:
         return None
     p = 0
@@ -21,7 +21,7 @@ def merge_sort(array):
     array[:] = merged_arr[:]
 
 
-def merge(arr_1, arr_2):
+def merge(arr_1: List, arr_2: List) -> List:
     i = j = k = 0
     merged_arr = [0] * (len(arr_1) + len(arr_2))
     while i < len(arr_1) and j < len(arr_2):

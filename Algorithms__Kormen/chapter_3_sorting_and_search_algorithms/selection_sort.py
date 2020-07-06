@@ -1,9 +1,10 @@
 # Selection sort
 #
 # Time: O(n^2)
+from typing import List
 
 
-def selection_sort(array):
+def selection_sort(array: List) -> List:
     array_length = len(array)
 
     for i in range(0, array_length - 1):
