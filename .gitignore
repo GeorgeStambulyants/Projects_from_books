@@ -1,8 +1,8 @@
-# virtual environments. They will be removed soon
+# virtual environments
 *venv
 env
 
-# need to remove this
+# bootstrap
 bootstrap-4.4.1-dist
 bootstrap-4.4.1-dist.zip
 
