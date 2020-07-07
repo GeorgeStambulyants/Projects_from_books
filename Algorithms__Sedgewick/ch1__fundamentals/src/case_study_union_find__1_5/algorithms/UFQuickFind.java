@@ -3,7 +3,7 @@
     with quick-find. See find() instance method.
     ------------------------------------------
     Test as follows:
-        java UF < (tiny|medium|large)UF.txt (files from algs4-data)
+        java UFQuickFind < (tiny|medium|large)UF.txt (files from algs4-data)
  */
 package case_study_union_find__1_5.algorithms;
 
