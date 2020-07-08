@@ -1,8 +1,8 @@
 # test data
-# contains some large files that GITHub does not allow
+# contains some large files that GitHub does not allow
 algs4-data
 
-# built files
+# compiled files
 out/
 
 # IntelliJ's stuff
