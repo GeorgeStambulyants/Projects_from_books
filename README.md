@@ -24,6 +24,7 @@ This file is regularly updated. All finished books are marked.
 * [__"Django for Professionals"__ -- _William S. Vincent_ | (**FINISHED**)](#django-for-professionals-william-s-vincent)
 * [__"Django for Beginners"__ -- _William S. Vincent_ | (**FINISHED**)](#django-for-beginners-william-s-vincent)
 * [__"Practical Django 2 and Channels 2"__ -- _Frederico Marani_](#practical-django-2-and-channels-2-frederico-marani)
+* [__"Django Project Blueprints"__ -- _Asad Jibran Ahmed_](#django-project-blueprints-asad-jibran-ahmed)
 
 ### Flask ###
 * [__"Flask By Example"__ -- _Gareth Dwyer_](#flask-by-example-gareth-dwyer)
@@ -251,6 +252,11 @@ Nothing interesting here. Just four small simple Django projects to learn the ba
 
 ### ["Practical Django 2 and Channels 2", Frederico Marani](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django__Marani) ###
 Coming soon... Book is not finished. This section will be updated.
+
+- - -
+
+### ["Django Project Blueprints", Asad Jibran Ahmed](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django__Jibran) ###
+Coming soon...
 
 - - -
 
