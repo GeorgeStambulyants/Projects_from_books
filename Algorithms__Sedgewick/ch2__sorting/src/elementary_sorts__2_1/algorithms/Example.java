@@ -1,11 +1,17 @@
 /*
     Template for sort classes
+    -------------------------
+    Test like this:
+        $ java Example < tiny.txt
+        A E E L M O P R S T X
+
+        $ java Example < words3.txt
+        all bad bed bug dad ... yes yet zoo
  */
 
 package elementary_sorts__2_1.algorithms;
 
 
-import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
