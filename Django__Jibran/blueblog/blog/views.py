@@ -1,9 +1,9 @@
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.http.response import (
     HttpResponseRedirect, HttpResponseForbidden,
 )
 from django.utils.text import slugify
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.base import TemplateView
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
@@ -19,7 +19,9 @@ class HomeView(TemplateView):
         ctx = super(HomeView, self).get_context_data(**kwargs)
 
         if self.request.user.is_authenticated:
-            ctx['has_blog'] = Blog.objects.filter(owner=self.request.user).exists()
+            if Blog.objects.filter(owner=self.request.user).exists():
+                ctx['has_blog'] = True
+                ctx['blog'] = Blog.objects.get(owner=self.request.user)
 
         return ctx
 
@@ -44,3 +46,14 @@ class NewBlogView(CreateView):
                 'You can not create more than one blog per account'
             )
         return super(NewBlogView, self).dispatch(request, *args, **kwargs)
+
+
+class UpdateBlogView(UpdateView):
+    form_class = BlogForm
+    template_name = 'blog_settings.html'
+    success_url = reverse_lazy('home')
+    model = Blog
+
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+        return super(UpdateBlogView, self).dispatch(request, *args, **kwargs)
