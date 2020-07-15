@@ -25,6 +25,8 @@ public class SortCompare {
             InsertionSort.sort(a);
         else if (alg.equals("Selection"))
             SelectionSort.sort(a);
+        else if (alg.equals("Shell"))
+            ShellSort.sort(a);
 
         return timer.elapsedTime();
     }
