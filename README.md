@@ -70,7 +70,7 @@ What I have learned?
 
 - - -
 
-### "Algorithms", Robert Sedgewick and Kevin Wayne ###
+### ["Algorithms", Robert Sedgewick and Kevin Wayne](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Algorithms__Sedgewick) ###
 Coming soon...
 
 - - -
