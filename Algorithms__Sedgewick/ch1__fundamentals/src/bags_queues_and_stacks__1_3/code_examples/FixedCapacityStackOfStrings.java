@@ -11,8 +11,10 @@ import edu.princeton.cs.algs4.StdOut;
 public class FixedCapacityStackOfStrings {
     private String[] a;  // stack entries
     private int N;  // size
+    private int capacity;
 
     public FixedCapacityStackOfStrings(int cap) {
+        capacity = cap;
         a = new String[cap];
     }
 
@@ -30,6 +32,10 @@ public class FixedCapacityStackOfStrings {
 
     public String pop() {
         return a[--N];
+    }
+
+    public boolean isFull() {
+        return capacity == N + 1;
     }
 
     public static void main(String[] args) {
