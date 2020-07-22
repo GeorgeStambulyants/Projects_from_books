@@ -143,7 +143,7 @@ __Python libs I worked with__:
 * markdown
 
 #### [Bookmarks](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django__Mele/Bookmarks) ####
-Bookmarks is a simple socail application.
+Bookmarks is a simple social application.
 
 
 __In this web application I have learned about__:
