@@ -24,11 +24,9 @@ This file is regularly updated. All finished books are marked.
 * [__"Django for Professionals"__ -- _William S. Vincent_ | (**FINISHED**)](#django-for-professionals-william-s-vincent)
 * [__"Django for Beginners"__ -- _William S. Vincent_ | (**FINISHED**)](#django-for-beginners-william-s-vincent)
 * [__"Practical Django 2 and Channels 2"__ -- _Frederico Marani_](#practical-django-2-and-channels-2-frederico-marani)
-* [__"Django Project Blueprints"__ -- _Asad Jibran Ahmed_](#django-project-blueprints-asad-jibran-ahmed)
 
 ### Flask ###
-* [__"Flask By Example"__ -- _Gareth Dwyer_](#flask-by-example-gareth-dwyer)
-* [__"Flask Web Development"__ -- _Miguel Grinberg_](#flask-web-development-miguel-grinberg)
+* [__"Flask By Example"__ -- _Gareth Dwyer_] | (**FINISHED**)(#flask-by-example-gareth-dwyer)
 
 ### Test-Driven Development ###
 * [__"Test-Driven Development with Python"__ -- _Harry J.W. Percival_ | (**FINISHED**)](#test-driven-development-with-python-harry-jw-percival)
@@ -255,11 +253,6 @@ Coming soon... Book is not finished. This section will be updated.
 
 - - -
 
-### ["Django Project Blueprints", Asad Jibran Ahmed](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django__Jibran) ###
-Coming soon...
-
-- - -
-
 ### ["Flask By Example", Gareth Dwyer](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Flask__Dwyer) ###
 This book taught me the basics of the Flask Web Framework. Two projects were built
 
@@ -282,10 +275,6 @@ __In this web application I have learned about__:
 * Working with different APIs
 * Using static assets in Flask application
 
-- - -
-
-### ["Flask Web Development", Miguel Grinberg](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Flask__Grinberg) ###
-Coming soon... Book is not finished. This section will be updated.
 - - -
 
 ### ["Test-Driven Development with Python", Harry J.W. Percival](https://github.com/GeorgeStambulyants/Projects_from_books/tree/master/Django_TDD__Percival) ###
