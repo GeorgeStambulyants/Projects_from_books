@@ -26,7 +26,7 @@ This file is regularly updated. All finished books are marked.
 * [__"Practical Django 2 and Channels 2"__ -- _Frederico Marani_](#practical-django-2-and-channels-2-frederico-marani)
 
 ### Flask ###
-* [__"Flask By Example"__ -- _Gareth Dwyer_] | (**FINISHED**)(#flask-by-example-gareth-dwyer)
+* [__"Flask By Example"__ -- _Gareth Dwyer_ | (**FINISHED**)](#flask-by-example-gareth-dwyer)
 
 ### Test-Driven Development ###
 * [__"Test-Driven Development with Python"__ -- _Harry J.W. Percival_ | (**FINISHED**)](#test-driven-development-with-python-harry-jw-percival)
