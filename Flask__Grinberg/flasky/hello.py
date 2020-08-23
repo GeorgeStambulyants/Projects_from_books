@@ -7,15 +7,21 @@ from flask_moment import Moment
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
+from flask_sqlalchemy import SQLAlchemy
 
-from datetime import datetime
+import os
 
+
+BASEDIR = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'hard to guess string'
+app.config['SQLALCHEMY_DATABASE_URL'] = 'sqlite:///' + os.path.join(BASEDIR, 'data.sqlite')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 bootstrap = Bootstrap(app)
 moment = Moment(app)
+db = SQLAlchemy(app)
 
 
 class NameForm(FlaskForm):
