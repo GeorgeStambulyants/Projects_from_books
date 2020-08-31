@@ -1,6 +1,5 @@
 from flask import Flask
 from flask import render_template, session, redirect, url_for
-from flask import flash
 
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
@@ -9,6 +8,8 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_mail import Mail
+from flask_mail import Message
 
 import os
 
@@ -19,11 +20,15 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'hard to guess string'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(BASEDIR, 'db.sqlite3')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['FLASKY_MAIL_SUBJECT_PREFIX'] = '[Flasky]'
+app.config['FLASKY_MAIL_SENDER'] = 'Flasky Admin <flasky@example.com>'
+app.config['FLASKY_ADMIN'] = 'flasky@admin.com'
 
 bootstrap = Bootstrap(app)
 moment = Moment(app)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
+mail = Mail(app)
 
 
 class NameForm(FlaskForm):
@@ -51,6 +56,16 @@ class User(db.Model):
         return f'<User {self.username}>'
 
 
+def send_email(to, subject, template, **kwargs):
+    msg = Message(
+        app.config['FLASKY_MAIL_SUBJECT_PREFIX'] + subject,
+        sender=app.config['FLASKY_MAIL_SENDER'],
+        recipients=[to]
+    )
+    msg.body = render_template(template + '.txt', **kwargs)
+    msg.html = render_template(template + '.html', **kwargs)
+
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     form = NameForm()
@@ -61,6 +76,11 @@ def index():
             db.session.add(user)
             db.session.commit()
             session['known'] = False
+            if app.config['FLASKY_ADMIN']:
+                send_email(
+                    app.config['FLASKY_ADMIN'], 'New User',
+                    'mail/new_user', user=user,
+                )
         else:
             session['known'] = True
         session['name'] = form.name.data
